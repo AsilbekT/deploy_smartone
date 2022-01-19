@@ -1,0 +1,36 @@
+.details {
+   padding: 50px 0;
+   .tab-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      li {
+         &.ui-tabs-active.ui-state-active {
+            a {
+               background: $stColor;
+               color: $light;
+            }
+         }
+         a {
+            display: inline-block;
+            padding: 10px 20px;
+            @include fs-16-fw-500;
+            color: $textColor;
+            transition: $tr;
+            border-radius: 4px;
+         }
+      }
+   }
+   .tab-content {
+      transition: $tr;
+      .head-title {
+         @include fs-24-fw-500;
+         margin-bottom: 15px;
+      }
+      .head-subtitle {
+         @include fs-14-fw-400;
+         margin-bottom: 15px;
+      }
+   }
+}

@@ -1,0 +1,153 @@
+.slider {
+  position: relative;
+  height: 700px;
+  & > svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .container {
+    max-width: 1700px;
+    margin: 0 auto;
+    z-index: 1;
+    @include media(1750px) {
+      max-width: 1500px;
+    }
+    @include media(1500px) {
+      max-width: 1350px;
+    }
+    .owl-carousel {
+      width: 100%;
+    }
+    .item {
+      height: 700px;
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .header-content {
+        width: 50%;
+        padding: 0 50px 0 80px;
+        .desc {
+          @include fs-14-fw-400;
+          color: $light;
+          margin-bottom: 10px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+        .title {
+          @include fs-36-fw-500;
+          color: $light;
+          margin-bottom: 20px;
+        }
+        .slide-btn {
+          margin-top: 20px;
+          display: inline-block;
+        }
+      }
+      .header-img {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 50px;
+        img {
+          width: 100%;
+          height: 340px;
+          object-fit: contain;
+        }
+      }
+    }
+    .owl-item.active {
+      .title {
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        animation-name: fadeInDown;
+        animation-delay: 0.3s;
+      }
+      .desc {
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        animation-name: fadeInDown;
+        animation-delay: 0.3s;
+        &:last-child {
+          animation-duration: 1s;
+          animation-fill-mode: both;
+          animation-name: fadeInUp;
+          animation-delay: 0.3s;
+        }
+      }
+      .header-img img {
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        animation-name: fadeInUp;
+        animation-delay: 0.3s;
+      }
+      .slide-btn {
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        animation-name: fadeInUp;
+        animation-delay: 0.3s;
+      }
+    }
+    .owl-nav {
+      .owl-prev {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.4s ease-out;
+        background: $ndColor;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        span {
+          color: $light;
+          margin-bottom: 2px;
+        }
+        &:focus {
+          outline: 0;
+        }
+        &:hover {
+          background: $textColor;
+        }
+      }
+      .owl-next {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.4s ease-out;
+        background: $ndColor;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        span {
+          color: $light;
+          margin-bottom: 2px;
+        }
+        &:focus {
+          outline: 0;
+        }
+        &:hover {
+          background: $textColor;
+        }
+      }
+    }
+  }
+}

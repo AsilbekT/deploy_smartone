@@ -1,0 +1,623 @@
+{% extends "new_design/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %} home {% endblock %}
+{% block content %}
+    {% get_current_language as LANGUAGE_CODE %}
+
+
+    <!-- Slider -->
+    <div class="slider">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+             xmlns:svgjs="http://svgjs.com/svgjs" width="1920" height="790" preserveAspectRatio="none"
+             viewBox="0 0 1920 790">
+            <g mask="url(&quot;#SvgjsMask1096&quot;)" fill="none">
+                <rect width="1920" height="790" x="0" y="0" fill="url(#SvgjsLinearGradient1097)"></rect>
+                <path
+                        d="M1384.4556377545916 389.37373889757725L1317.9367865184997 532.0238757177219 1460.5869233386445 598.5427269538137 1527.1057745747362 455.89259013366905z"
+                        fill="rgba(28, 83, 142, 0.4)" class="triangle-float2"></path>
+                <path
+                        d="M1759.7754658791373 206.69508348552577L1645.7875434406455 107.60689423852025 1546.6993541936401 221.5948166770119 1660.6872766321317 320.6830059240174z"
+                        fill="rgba(28, 83, 142, 0.4)" class="triangle-float3"></path>
+                <path
+                        d="M580.3977006268165 74.60485755754874L617.0036173833522 221.42317053926263 818.9281284776552 93.10513891360202z"
+                        fill="rgba(28, 83, 142, 0.4)" class="triangle-float1"></path>
+                <path
+                        d="M274.54141943436275 224.68487245141608L427.0964972257399 129.5599163883885 289.64272419067197 53.3680458387158z"
+                        fill="rgba(28, 83, 142, 0.4)" class="triangle-float2"></path>
+                <path
+                        d="M1390.8016119706172 52.172379997933L1443.446875071772 196.81405160960375 1535.443283582288-0.4728831032218892z"
+                        fill="rgba(28, 83, 142, 0.4)" class="triangle-float2"></path>
+                <path
+                        d="M297.91617168794534 237.38168971925413L233.24747493211675 336.9627501091044 332.82853532196697 401.63144686493297 397.4972320777956 302.05038647508275z"
+                        fill="rgba(28, 83, 142, 0.4)" class="triangle-float3"></path>
+            </g>
+            <defs>
+                <mask id="SvgjsMask1096">
+                    <rect width="1920" height="790" fill="#ffffff"></rect>
+                </mask>
+                <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" gradientUnits="userSpaceOnUse"
+                                id="SvgjsLinearGradient1097">
+                    <stop stop-color="#0e2a47" offset="0"></stop>
+                    <stop stop-color="rgba(90, 25, 180, 1)" offset="1"></stop>
+                </linearGradient>
+                <style>
+                    @keyframes float1 {
+                        0% {
+                            transform: translate(0, 0)
+                        }
+
+                        50% {
+                            transform: translate(-20px, 0)
+                        }
+
+                        100% {
+                            transform: translate(0, 0)
+                        }
+                    }
+
+                    .triangle-float1 {
+                        animation: float1 5s infinite;
+                    }
+
+                    @keyframes float2 {
+                        0% {
+                            transform: translate(0, 0)
+                        }
+
+                        50% {
+                            transform: translate(-15px, -15px)
+                        }
+
+                        100% {
+                            transform: translate(0, 0)
+                        }
+                    }
+
+                    .triangle-float2 {
+                        animation: float2 4s infinite;
+                    }
+
+                    @keyframes float3 {
+                        0% {
+                            transform: translate(0, 0)
+                        }
+
+                        50% {
+                            transform: translate(0, -20px)
+                        }
+
+                        100% {
+                            transform: translate(0, 0)
+                        }
+                    }
+
+                    .triangle-float3 {
+                        animation: float3 6s infinite;
+                    }
+
+                </style>
+            </defs>
+        </svg>
+        <div class="container">
+            <div class="owl-carousel owl-theme">
+                {% for product in products %}
+                    <div class="item">
+                        {% if LANGUAGE_CODE == "ru" %}
+                            <div class="header-content">
+                                <p class="desc">{{ product.title_ru }}</p>
+                                <h2 class="title">{{ product.name_ru }}</h2>
+                                <p class="desc">{{ product.description_ru }}</p>
+                                <a href="{% url 'product_detail' id=product.id %}/" class="slide-btn pr-btn">
+                                    {{ text.learn_more|safe }}
+                                    <span class="first"></span>
+                                    <span class="second"></span>
+                                    <span class="third"></span>
+                                    <span class="fourth"></span>
+                                </a>
+                            </div>
+                        {% elif LANGUAGE_CODE == "uz" %}
+                            <div class="header-content">
+                                <p class="desc">{{ product.title_uz }}</p>
+                                <h2 class="title">{{ product.name_uz }}</h2>
+                                <p class="desc">{{ product.description_uz }}</p>
+                                <a href="{% url 'product_detail' id=product.id %}/" class="slide-btn pr-btn">
+                                    {{ text.learn_more|safe }}
+                                    <span class="first"></span>
+                                    <span class="second"></span>
+                                    <span class="third"></span>
+                                    <span class="fourth"></span>
+                                </a>
+                            </div>
+
+                        {% else %}
+                            <div class="header-content">
+                                <p class="desc">{{ product.title }}</p>
+                                <h2 class="title">{{ product.name }}</h2>
+                                <p class="desc">{{ product.description }}</p>
+                                <a href="{% url 'product_detail' id=product.id %}/" class="slide-btn pr-btn">
+                                    {{ text.learn_more|safe }}
+                                    <span class="first"></span>
+                                    <span class="second"></span>
+                                    <span class="third"></span>
+                                    <span class="fourth"></span>
+                                </a>
+                            </div>
+
+                        {% endif %}
+                        <div class="header-img">
+                            <img src="{{ product.product_url }}" alt="pic">
+                        </div>
+                    </div>
+
+                {% endfor %}
+                {% for product in productServices %}
+                    <div class="item">
+                        {% if LANGUAGE_CODE == "ru" %}
+                            <div class="header-content">
+                                <p class="desc">{{ product.title_ru }}</p>
+                                <h2 class="title">{{ product.name_ru }}</h2>
+                                <p class="desc">{{ product.description_ru }}</p>
+                                <a href="{% url 'product_services_detail' id=product.id %}" class="slide-btn pr-btn">
+                                    {{ text.learn_more|safe }}
+                                    <span class="first"></span>
+                                    <span class="second"></span>
+                                    <span class="third"></span>
+                                    <span class="fourth"></span>
+                                </a>
+                            </div>
+                        {% elif LANGUAGE_CODE == "uz" %}
+                            <div class="header-content">
+                                <p class="desc">{{ product.title_uz }}</p>
+                                <h2 class="title">{{ product.name_uz }}</h2>
+                                <p class="desc">{{ product.description_uz }}</p>
+                                <a href="{% url 'product_detail' id=product.id %}/" class="slide-btn pr-btn">
+                                    {{ text.learn_more|safe }}
+                                    <span class="first"></span>
+                                    <span class="second"></span>
+                                    <span class="third"></span>
+                                    <span class="fourth"></span>
+                                </a>
+                            </div>
+
+                        {% else %}
+                            <div class="header-content">
+                                <p class="desc">{{ product.title }}</p>
+                                <h2 class="title">{{ product.name }}</h2>
+                                <p class="desc">{{ product.description }}</p>
+                                <a href="{% url 'product_detail' id=product.id %}/" class="slide-btn pr-btn">
+                                    {{ text.learn_more|safe }}
+                                    <span class="first"></span>
+                                    <span class="second"></span>
+                                    <span class="third"></span>
+                                    <span class="fourth"></span>
+                                </a>
+                            </div>
+
+                        {% endif %}
+                        <div class="header-img">
+                            <img src="{{ product.product_url }}" alt="pic">
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <!-- Slider End -->
+
+    <!-- About -->
+    <div class="about">
+        <div class="container">
+            <h2 class="section-title">{{ text.about_smartone_home_main_title|safe }}</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about__detail">
+                        <h3 class="about__detail--title">{{ text.about_smartone_home_title }}</h3>
+                        <ul>
+                            {{ text.about_smartone_home_main|safe }}
+                        </ul>
+                        <a href="{% url 'about' %}" class="more-btn"><span>{{ text.learn_more|safe }}</span></a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about__img">
+                        <img src="{% static 'new_design/img/jpg/advantages.jpg' %}" alt="pic">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+    <!--Products-->
+    <div class="products">
+        <div class="container">
+            <h2 class="section-title">{{ text.products }}</h2>
+            <div class="owl-carousel">
+                {% for product in products %}
+                    <div class="item">
+                        <div class="item__img">
+                            <img src="{{ product.product_url }}" alt="pic">
+                        </div>
+                        {% if  LANGUAGE_CODE == 'uz' %}
+                            <div class="item__details">
+                                <h3 class="item__details--title">{{ product.name_uz }}</h3>
+                                <p class="item__details--desc">{{ product.description_uz|safe }}</p>
+                            </div>
+                        {% elif LANGUAGE_CODE == 'ru' %}
+                            <div class="item__details">
+                                <h3 class="item__details--title">{{ product.name_ru }}</h3>
+                                <p class="item__details--desc">{{ product.description_ru }}</p>
+                            </div>
+                        {% else %}
+                            <div class="item__details">
+                                <h3 class="item__details--title">{{ product.name }}</h3>
+                                <p class="item__details--desc">{{ product.description }}</p>
+                            </div>
+                        {% endif %}
+                        <div class="item__btns">
+
+                            <a href="{% url 'product_detail' id=product.id %}/" class="more-btn">
+                                <span>{{ text.more_details|safe }}</span>
+                            </a>
+                            <div class="add-to-cart-btn update-btn" data-product="{{ product.id }}" data-action="add">
+                                <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M2.8798 2.75768C2.79028 2.75093 2.66604 2.75033 2.43306 2.75033H0.916667C0.410406 2.75033 0 2.33992 0 1.83366C0 1.3274 0.410406 0.916996 0.916667 0.916996H2.43306C2.4417 0.916996 2.45034 0.916995 2.45898 0.916994C2.65575 0.91697 2.85058 0.916946 3.01755 0.929526C3.20335 0.943526 3.41921 0.976408 3.64252 1.07602C3.9568 1.21621 4.22528 1.44203 4.41724 1.72764C4.55364 1.93058 4.62303 2.13761 4.66865 2.31827C4.70966 2.48061 4.74301 2.67256 4.77671 2.86642C4.77818 2.87494 4.77966 2.88345 4.78115 2.89197L4.99956 4.14787L16.9291 4.50099C17.3965 4.51481 17.8005 4.52676 18.1332 4.5634C18.4849 4.60213 18.8336 4.67496 19.168 4.85314C19.6748 5.12313 20.0844 5.545 20.3393 6.05956C20.5075 6.39915 20.5699 6.7498 20.5982 7.10246C20.625 7.4361 20.625 7.84027 20.625 8.30795V8.37555C20.625 8.81506 20.625 9.19632 20.6004 9.51247C20.5743 9.84775 20.5167 10.1808 20.3631 10.5071C20.1293 11.0037 19.7523 11.419 19.2804 11.6996C18.9704 11.8839 18.6445 11.9733 18.3133 12.0316C18.001 12.0865 17.6216 12.1232 17.1841 12.1656L8.26136 13.029C7.81293 13.0725 7.4244 13.1101 7.10024 13.1158C6.75679 13.1218 6.41246 13.0951 6.06676 12.9682C5.54832 12.7777 5.09924 12.4356 4.778 11.9863C4.5638 11.6867 4.44668 11.3618 4.36134 11.029C4.28079 10.715 4.21392 10.3304 4.13675 9.88658L2.97492 3.20609C2.935 2.97655 2.91312 2.85426 2.89114 2.76721C2.89036 2.76412 2.8896 2.76118 2.88887 2.7584C2.88601 2.75816 2.88298 2.75792 2.8798 2.75768ZM5.32019 5.99149L5.93719 9.53925C6.02181 10.0258 6.07681 10.3382 6.13719 10.5736C6.19478 10.7981 6.24033 10.8794 6.26935 10.92C6.37643 11.0697 6.52612 11.1838 6.69894 11.2473C6.74577 11.2645 6.83624 11.2868 7.06799 11.2827C7.31098 11.2785 7.62676 11.2486 8.11829 11.201L16.9745 10.3439C17.4543 10.2975 17.762 10.2671 17.9956 10.226C18.2181 10.1868 18.3011 10.1489 18.3435 10.1238C18.5008 10.0302 18.6264 9.89181 18.7044 9.72626C18.7254 9.68167 18.7551 9.59536 18.7726 9.37014C18.791 9.13371 18.7917 8.82451 18.7917 8.34246C18.7917 7.8305 18.791 7.50062 18.7708 7.24915C18.7515 7.00853 18.7187 6.91832 18.6964 6.87332C18.6115 6.7018 18.4749 6.56118 18.306 6.47118C18.2617 6.44757 18.1725 6.41214 17.9325 6.38572C17.6818 6.3581 17.3521 6.34765 16.8403 6.3325L5.32019 5.99149Z"
+                                          fill="#424551"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M7.79167 16.042C7.28541 16.042 6.875 16.4524 6.875 16.9587C6.875 17.4649 7.28541 17.8753 7.79167 17.8753C8.29793 17.8753 8.70833 17.4649 8.70833 16.9587C8.70833 16.4524 8.29793 16.042 7.79167 16.042ZM5.04167 16.9587C5.04167 15.4399 6.27288 14.2087 7.79167 14.2087C9.31045 14.2087 10.5417 15.4399 10.5417 16.9587C10.5417 18.4774 9.31045 19.7087 7.79167 19.7087C6.27288 19.7087 5.04167 18.4774 5.04167 16.9587Z"
+                                          fill="#424551"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M16.5 16.042C15.9937 16.042 15.5833 16.4524 15.5833 16.9587C15.5833 17.4649 15.9937 17.8753 16.5 17.8753C17.0063 17.8753 17.4167 17.4649 17.4167 16.9587C17.4167 16.4524 17.0063 16.042 16.5 16.042ZM13.75 16.9587C13.75 15.4399 14.9812 14.2087 16.5 14.2087C18.0188 14.2087 19.25 15.4399 19.25 16.9587C19.25 18.4774 18.0188 19.7087 16.5 19.7087C14.9812 19.7087 13.75 18.4774 13.75 16.9587Z"
+                                          fill="#424551"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% for product in productServices %}
+                    <div class="item">
+                        <div class="item__img">
+                            <img src="{{ product.product_url }}" alt="pic">
+                        </div>
+                        {% if  LANGUAGE_CODE == 'uz' %}
+                            <div class="item__details">
+                                <h3 class="item__details--title">{{ product.name_uz }}</h3>
+                                <p class="item__details--desc">{{ product.description_uz }}</p>
+                            </div>
+                        {% elif LANGUAGE_CODE == 'ru' %}
+                            <div class="item__details">
+                                <h3 class="item__details--title">{{ product.name_ru }}</h3>
+                                <p class="item__details--desc">{{ product.description_ru }}</p>
+                            </div>
+                        {% else %}
+                            <div class="item__details">
+                                <h3 class="item__details--title">{{ product.name }}</h3>
+                                <p class="item__details--desc">{{ product.description }}</p>
+                            </div>
+                        {% endif %}
+
+                        <div class="item__btns">
+                            <a href="{% url 'product_services_detail' id=product.id %}" class="more-btn">
+                                <span>{{ text.more_details|safe }}</span>
+                            </a>
+                            <div class="add-to-cart-btn update-btn" data-product="{{ product.id }}" data-action="add">
+                                <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M2.8798 2.75768C2.79028 2.75093 2.66604 2.75033 2.43306 2.75033H0.916667C0.410406 2.75033 0 2.33992 0 1.83366C0 1.3274 0.410406 0.916996 0.916667 0.916996H2.43306C2.4417 0.916996 2.45034 0.916995 2.45898 0.916994C2.65575 0.91697 2.85058 0.916946 3.01755 0.929526C3.20335 0.943526 3.41921 0.976408 3.64252 1.07602C3.9568 1.21621 4.22528 1.44203 4.41724 1.72764C4.55364 1.93058 4.62303 2.13761 4.66865 2.31827C4.70966 2.48061 4.74301 2.67256 4.77671 2.86642C4.77818 2.87494 4.77966 2.88345 4.78115 2.89197L4.99956 4.14787L16.9291 4.50099C17.3965 4.51481 17.8005 4.52676 18.1332 4.5634C18.4849 4.60213 18.8336 4.67496 19.168 4.85314C19.6748 5.12313 20.0844 5.545 20.3393 6.05956C20.5075 6.39915 20.5699 6.7498 20.5982 7.10246C20.625 7.4361 20.625 7.84027 20.625 8.30795V8.37555C20.625 8.81506 20.625 9.19632 20.6004 9.51247C20.5743 9.84775 20.5167 10.1808 20.3631 10.5071C20.1293 11.0037 19.7523 11.419 19.2804 11.6996C18.9704 11.8839 18.6445 11.9733 18.3133 12.0316C18.001 12.0865 17.6216 12.1232 17.1841 12.1656L8.26136 13.029C7.81293 13.0725 7.4244 13.1101 7.10024 13.1158C6.75679 13.1218 6.41246 13.0951 6.06676 12.9682C5.54832 12.7777 5.09924 12.4356 4.778 11.9863C4.5638 11.6867 4.44668 11.3618 4.36134 11.029C4.28079 10.715 4.21392 10.3304 4.13675 9.88658L2.97492 3.20609C2.935 2.97655 2.91312 2.85426 2.89114 2.76721C2.89036 2.76412 2.8896 2.76118 2.88887 2.7584C2.88601 2.75816 2.88298 2.75792 2.8798 2.75768ZM5.32019 5.99149L5.93719 9.53925C6.02181 10.0258 6.07681 10.3382 6.13719 10.5736C6.19478 10.7981 6.24033 10.8794 6.26935 10.92C6.37643 11.0697 6.52612 11.1838 6.69894 11.2473C6.74577 11.2645 6.83624 11.2868 7.06799 11.2827C7.31098 11.2785 7.62676 11.2486 8.11829 11.201L16.9745 10.3439C17.4543 10.2975 17.762 10.2671 17.9956 10.226C18.2181 10.1868 18.3011 10.1489 18.3435 10.1238C18.5008 10.0302 18.6264 9.89181 18.7044 9.72626C18.7254 9.68167 18.7551 9.59536 18.7726 9.37014C18.791 9.13371 18.7917 8.82451 18.7917 8.34246C18.7917 7.8305 18.791 7.50062 18.7708 7.24915C18.7515 7.00853 18.7187 6.91832 18.6964 6.87332C18.6115 6.7018 18.4749 6.56118 18.306 6.47118C18.2617 6.44757 18.1725 6.41214 17.9325 6.38572C17.6818 6.3581 17.3521 6.34765 16.8403 6.3325L5.32019 5.99149Z"
+                                          fill="#424551"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M7.79167 16.042C7.28541 16.042 6.875 16.4524 6.875 16.9587C6.875 17.4649 7.28541 17.8753 7.79167 17.8753C8.29793 17.8753 8.70833 17.4649 8.70833 16.9587C8.70833 16.4524 8.29793 16.042 7.79167 16.042ZM5.04167 16.9587C5.04167 15.4399 6.27288 14.2087 7.79167 14.2087C9.31045 14.2087 10.5417 15.4399 10.5417 16.9587C10.5417 18.4774 9.31045 19.7087 7.79167 19.7087C6.27288 19.7087 5.04167 18.4774 5.04167 16.9587Z"
+                                          fill="#424551"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M16.5 16.042C15.9937 16.042 15.5833 16.4524 15.5833 16.9587C15.5833 17.4649 15.9937 17.8753 16.5 17.8753C17.0063 17.8753 17.4167 17.4649 17.4167 16.9587C17.4167 16.4524 17.0063 16.042 16.5 16.042ZM13.75 16.9587C13.75 15.4399 14.9812 14.2087 16.5 14.2087C18.0188 14.2087 19.25 15.4399 19.25 16.9587C19.25 18.4774 18.0188 19.7087 16.5 19.7087C14.9812 19.7087 13.75 18.4774 13.75 16.9587Z"
+                                          fill="#424551"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="center">
+                <a href="{% url 'products' %}" class="slide-btn pr-btn">
+                    {{ text.all_products|safe }}
+                    <span class="first"></span>
+                    <span class="second"></span>
+                    <span class="third"></span>
+                    <span class="fourth"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--Products End-->
+
+    <!--Features-->
+    <div class="features">
+        <div class="container">
+            <h2 class="section-title">{{ text.why_smartone_home_title|safe }}</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="features__item">
+                        <img src="{% static 'new_design/img/png/f01.png' %}" alt="pic"
+                             class="features__item--img">
+                        <div class="features__item--details">
+                            <h3>{{ text.support|safe }}</h3>
+                            <p>{{ text.support_main|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="features__item">
+                        <img src="{% static 'new_design/img/png/f02.png' %}" alt="pic"
+                             class="features__item--img">
+                        <div class="features__item--details">
+                            <h3>{{ text.why_smartone_profitability_title|safe }}</h3>
+                            <p>{{ text.why_smartone_profitability_main|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="features__item">
+                        <img src="{% static 'new_design/img/png/f03.png' %}" alt="pic"
+                             class="features__item--img">
+                        <div class="features__item--details">
+                            <h3>{{ text.why_smartone_profitability_time_title|safe }}</h3>
+                            <p>{{ text.why_smartone_profitability_time_main|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="features__item">
+                        <img src="{% static 'new_design/img/png/f04.png' %}" alt="pic"
+                             class="features__item--img">
+                        <div class="features__item--details">
+                            <h3>{{ text.why_smartone_profitability_4_title|safe }}</h3>
+                            <p>{{ text.why_smartone_profitability_4_main|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="features__item">
+                        <img src="{% static 'new_design/img/png/f05.png' %}" alt="pic"
+                             class="features__item--img">
+                        <div class="features__item--details">
+                            <h3>{{ text.why_smartone_profitability_5_title|safe }}</h3>
+                            <p>{{ text.why_smartone_profitability_5_main|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="features__item">
+                        <img src="{% static 'new_design/img/png/f06.png' %}" alt="pic"
+                             class="features__item--img">
+                        <div class="features__item--details">
+                            <h3>{{ text.why_smartone_profitability_6_title|safe }}</h3>
+                            <p>{{ text.why_smartone_profitability_6_main|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Features End-->
+
+    <!--Video Guide-->
+    <div class="video-guide">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="video" style="background: url({% static 'img/jpg/advantages.jpg' %});">
+                        <video src="{% static 'new_design/media/video/video.mp4' %}" controls></video>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="details">
+                        <h2 class="title">Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                        <p class="desc">Lorem pariatur repellendus, soluta magni, sint dolorum asperiores,
+                            quas
+                            recusandae
+                            laudantium
+                            debitis!
+                        </p>
+                        <p class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Exercitationem
+                            odio
+                            quibusdam
+                            corporis
+                            sequi illum pariatur repellendus, soluta magni, sint dolorum asperiores, quas
+                            recusandae
+                            laudantium
+                            debitis!
+                        </p>
+                        <p class="desc">Lorem sequi illum pariatur repellendus, soluta magni, sint dolorum
+                            asperiores,
+                            quas
+                            recusandae laudantium
+                            debitis!
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Video Guide End-->
+
+    <!-- Details -->
+    <div class="details">
+        <div class="container">
+            <h2 class="section-title">{{text.for_whom_carusel_title_home|safe}}</h2>
+            <div id="tabs" class="tabs">
+                <ul class="tab-links">
+                    <li><a href="#tabs-1">{{ text.for_whom_carusel_retail_title_home|safe }}</a></li>
+                    <li><a href="#tabs-2">{{ text.for_whom_carusel_table2_title_home|safe }}</a></li>
+                    <li><a href="#tabs-3">{{ text.for_whom_carusel_table3_title_home|safe }}</a></li>
+                    <li><a href="#tabs-4">{{ text.for_whom_carusel_table4_title_home|safe }}</a></li>
+                    <li><a href="#tabs-5">{{ text.for_whom_carusel_table5_title_home|safe }}</a></li>
+                </ul>
+                <div class="tab-content" id="tabs-1">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="about__img">
+                                <img src="{% static 'new_design/img/jpg/dt01.jpg' %}" alt="pic">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about__detail">
+{#                                <h2 class="head-title">{{ text.for_whom_carusel_retail_title_home|safe }}​</h2>#}
+                                <p class="head-subtitle">{{ text.for_whom_carusel_retail_description_home |safe }}</p>
+                                <h3 class="about__detail--title">{{ text.for_whom_carusel_retail_subtitle_home |safe }}</h3>
+                                <ul>
+                                    {{ text.for_whom_carusel_retail_main_home |safe }}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="tabs-2">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="about__img">
+                                <img src="{% static 'new_design/img/jpg/dt02.jpg' %}" alt="pic">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about__detail">
+{#                                <h2 class="head-title">{{ text.for_whom_carusel_retail_title_home|safe }}​</h2>#}
+                                <p class="head-subtitle">{{ text.for_whom_carusel_table2_description_home |safe }}</p>
+                                <h3 class="about__detail--title">{{ text.for_whom_carusel_table2_subtitle_home |safe }}</h3>
+                                <ul>
+                                    {{ text.for_whom_carusel_table2_main_home |safe }}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="tabs-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="about__img">
+                                <img src="{% static 'new_design/img/jpg/dt03.jpg' %}" alt="pic">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about__detail">
+{#                                <h2 class="head-title">{{ text.for_whom_carusel_retail_title_home|safe }}​</h2>#}
+                                <p class="head-subtitle">{{ text.for_whom_carusel_table3_description_home |safe }}</p>
+                                <h3 class="about__detail--title">{{ text.for_whom_carusel_table3_subtitle_home |safe }}</h3>
+                                <ul>
+                                    {{ text.for_whom_carusel_table3_main_home |safe }}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="tabs-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="about__img">
+                                <img src="{% static 'new_design/img/jpg/ecommerce.jpeg' %}" alt="pic">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about__detail">
+{#                                <h2 class="head-title">{{ text.for_whom_carusel_retail_title_home|safe }}​</h2>#}
+                                <p class="head-subtitle">{{ text.for_whom_carusel_table4_description_home |safe }}</p>
+                                <h3 class="about__detail--title">{{ text.for_whom_carusel_table4_subtitle_home |safe }}</h3>
+                                <ul>
+                                    {{ text.for_whom_carusel_table4_main_home |safe }}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="tabs-5">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="about__img">
+                                <img src="{% static 'new_design/img/jpg/dt02.jpg' %}" alt="pic">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about__detail">
+{#                                <h2 class="head-title">{{ text.for_whom_carusel_retail_title_home|safe }}​</h2>#}
+                                <p class="head-subtitle">{{ text.for_whom_carusel_table5_description_home |safe }}</p>
+                                <h3 class="about__detail--title">{{ text.for_whom_carusel_table5_subtitle_home |safe }}</h3>
+                                <ul>
+                                    {{ text.for_whom_carusel_table5_main_home |safe }}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="center">
+                <a href="{% url 'products' %}" class="slide-btn pr-btn">
+                    {{ text.get_offer | safe }}
+                    <span class="first"></span>
+                    <span class="second"></span>
+                    <span class="third"></span>
+                    <span class="fourth"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Details End -->
+
+    <!-- Guides -->
+    <div class="guides">
+        <div class="container">
+            <h2 class="section-title">{{ text.where_to_start|safe }}</h2>
+            <div class="row">
+                <div class="col-md-4 col-lg-3 mb-3 mb-lg-0">
+                    <div class="guides__item">
+                        <img src="{% static 'new_design/img/png/g01.png' %}" alt="pic">
+                        <div class="wrap">
+                            <h3 class="guides__item--title">{{ text.guides__item_table1_title |safe }}</h3>
+                            <p>{{ text.guides__item_table1_main |safe }}</p>
+                        </div>
+                        <a href="#" class="contact-btn"><span>{{ text.to_order |safe }}</span></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3 mb-lg-0">
+                    <div class="guides__item">
+                        <img src="{% static 'new_design/img/png/g02.png' %}" alt="pic">
+                        <div class="wrap">
+                            <h3 class="guides__item--title">{{ text.guides__item_table2_title |safe }}</h3>
+                            <p>{{ text.guides__item_table2_main |safe }}</p>
+                        </div>
+                        <a href="#" class="contact-btn"><span>{{ text.to_order |safe }}</span></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3 mb-lg-0">
+                    <div class="guides__item">
+                        <img src="{% static 'new_design/img/png/g03.png' %}" alt="pic">
+                        <div class="wrap">
+                            <h3 class="guides__item--title">{{ text.guides__item_table3_title |safe }}</h3>
+                            <p>{{ text.guides__item_table3_main |safe }}</p>
+                        </div>
+                        <a href="#" class="contact-btn"><span>{{ text.to_order |safe }}</span></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3 mb-lg-0">
+                    <div class="guides__item">
+                        <img src="{% static 'new_design/img/png/g04.png' %}" alt="pic">
+                        <div class="wrap">
+                            <h3 class="guides__item--title">{{ text.guides__item_table4_title |safe }}</h3>
+                            <p>{{ text.guides__item_table4_main |safe }}</p>
+                        </div>
+                        <a href="#" class="contact-btn"><span>{{ text.to_order |safe }}</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Guides End -->
+
+
+{% endblock %}

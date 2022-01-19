@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% extends "new_design/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %} home {% endblock %}
+{% block content %}
+
+    <div class="content">
+      <div class="banner">
+        <div class="container">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{%url 'home'%}">{{text.home|safe}}</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                {{text.warranty|safe}}
+              </li>
+            </ol>
+          </nav>
+          <h2 class="page-title">{{text.warranty|safe}}</h2>
+        </div>
+      </div>
+      <div class="warranty">
+        <div class="container">
+          {{text.warranty_type|safe}}
+          <div class="center">
+            <a href="{%url 'service' %}" class="pr-btn">
+              {{text.services|safe}}
+              <span class="first"></span>
+              <span class="second"></span>
+              <span class="third"></span>
+              <span class="fourth"></span>
+            </a>
+          </div>
+          <!-- <h2 class="section-title">SmartOne Warranty obligations</h2>
+          <div class="warranty-obligations">
+            <div class="accordion_block">
+              <div class="accordion_title">Warranty service</div>
+              <div class="accordion_content">
+                <p class="warranty-obligations__desc">
+                  The manufacturer guarantees the operability of the MCT for 12
+                  months from the date of shipment from the manufacturer's
+                  warehouse or an official dealer. Subject to compliance with
+                  the rules of operation, transportation and storage.
+                </p>
+                <p class="warranty-obligations__desc">
+                  <span>The manufacturer</span> guarantees the operability of
+                  the MCT for 12 months from the date of shipment from the
+                  manufacturer's warehouse or an official dealer.
+                </p>
+                <ol>
+                  <li>
+                    Expenses related to scheduled maintenance. Routine
+                    maintenance, material consumption during maintenance. Also
+                    diagnostic and adjustment work.
+                  </li>
+                  <li>
+                    Routine maintenance, material consumption during
+                    maintenance. Also diagnostic and adjustment work.
+                  </li>
+                  <li>
+                    Expenses related to scheduled maintenance. Expenses related
+                    to scheduled maintenance. Routine maintenance, material
+                    consumption during maintenance. Also diagnostic and
+                    adjustment work.
+                  </li>
+                  <li>
+                    Expenses related to scheduled maintenance. Routine
+                    maintenance, material consumption during maintenance. Also
+                    diagnostic and adjustment work.
+                  </li>
+                </ol>
+              </div>
+            </div>
+            <div class="accordion_block">
+              <div class="accordion_title">Warranty service</div>
+              <div class="accordion_content">
+                <p class="warranty-obligations__desc">
+                  The manufacturer guarantees the operability of the MCT for 12
+                  months from the date of shipment from the manufacturer's
+                  warehouse or an official dealer. Subject to compliance with
+                  the rules of operation, transportation and storage.
+                </p>
+                <p class="warranty-obligations__desc">
+                  <span>The manufacturer</span> guarantees the operability of
+                  the MCT for 12 months from the date of shipment from the
+                  manufacturer's warehouse or an official dealer.
+                </p>
+                <ol>
+                  <li>
+                    Expenses related to scheduled maintenance. Routine
+                    maintenance, material consumption during maintenance. Also
+                    diagnostic and adjustment work.
+                  </li>
+                  <li>
+                    Routine maintenance, material consumption during
+                    maintenance. Also diagnostic and adjustment work.
+                  </li>
+                  <li>
+                    Expenses related to scheduled maintenance. Expenses related
+                    to scheduled maintenance. Routine maintenance, material
+                    consumption during maintenance. Also diagnostic and
+                    adjustment work.
+                  </li>
+                  <li>
+                    Expenses related to scheduled maintenance. Routine
+                    maintenance, material consumption during maintenance. Also
+                    diagnostic and adjustment work.
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}

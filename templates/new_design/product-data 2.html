@@ -1,0 +1,362 @@
+{% extends "new_design/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %} home {% endblock %}
+{% block content %}
+
+
+    <div class="content">
+        <div class="banner">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'products' %}">{{text.products|safe}}</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            {{text.product|safe}}
+                        </li>
+                    </ol>
+                </nav>
+                <h2 class="page-title">{{text.product|safe}}</h2>
+            </div>
+        </div>
+        <div class="top-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="text">
+                            {% get_current_language as LANGUAGE_CODE %}
+
+                        {% if  LANGUAGE_CODE == 'uz' %}
+                                            <h3 class="title">{{ product.name_uz }}</h3>
+                                            <p class="desc">{{ product.description_uz }}</p>
+                                    {% elif LANGUAGE_CODE == 'ru' %}
+                                            <h3 class="title">{{ product.name_ru }}</h3>
+                                            <p class="desc">{{ product.description_ru }}</p>
+                                    {% else %}
+                                            <h3 class="title">{{ product.name }}</h3>
+                                            <p class="desc">{{ product.description }}</p>
+                                    {% endif %}
+                        
+                            <a
+                                    href="contact.html"
+                                    class="contact-btn"
+                                    data-toggle="modal"
+                                    data-target="#contactModalCenter"
+                            >
+                                <span>{{text.connect|safe}}</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="top-banner__img">
+                            <img src="{{ product.product_url }}" alt="pic"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="product-banner__img">
+                            <img src="{% static 'new_design/img/png/bnpr01.png' %}"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 px-0 px-md-4">
+                        
+                        {{text.smartone_qizil_aparat_detail|safe}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="features pr pt-0 pt-md-5">
+            <div class="container pt-0 pt-md-5">
+                <div class="row pt-3">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <div class="features__item">
+                            <img
+                                    src="{% static 'new_design/img/png/feapr01.png' %}"
+                                    alt="pic"
+                                    class="features__item--img"
+                            />
+                            <div class="features__item--details">
+                                <h3>{{text.smartone_qizil_aparat_detail1_title|safe}}</h3>
+                                <p>
+                                    {{text.smartone_qizil_aparat_detail1_text|safe}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <div class="features__item">
+                            <img
+                                    src="{% static 'new_design/img/png/feapr02.png' %}"
+                                    alt="pic"
+                                    class="features__item--img"
+                            />
+                            <div class="features__item--details">
+                                <h3>{{text.smartone_qizil_aparat_detail2_title|safe}}</h3>
+                                <p>
+                                    {{text.smartone_qizil_aparat_detail2_text|safe}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <div class="features__item">
+                            <img
+                                    src="{% static 'new_design/img/png/feapr03.png' %}"
+                                    alt="pic"
+                                    class="features__item--img"
+                            />
+                            <div class="features__item--details">
+                                <h3>{{text.smartone_qizil_aparat_detail3_title|safe}}</h3>
+                                <p>
+                                    {{text.smartone_qizil_aparat_detail3_text|safe}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <div class="features__item">
+                            <img
+                                    src="{% static 'new_design/img/png/feapr04.png' %}"
+                                    alt="pic"
+                                    class="features__item--img"
+                            />
+                            <div class="features__item--details">
+                                <h3>{{text.smartone_qizil_aparat_detail4_title|safe}}</h3>
+                                <p>
+                                    {{text.smartone_qizil_aparat_detail4_text|safe}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="details">
+            <div class="container">
+                <h2 class="section-title">{{text.for_whom_carusel_title_home|safe}}</h2>
+            <div id="tabs" class="tabs">
+                <ul class="tab-links">
+                    <li><a href="#tabs-1">{{ text.for_whom_carusel_retail_title_home|safe }}</a></li>
+                    <li><a href="#tabs-2">{{ text.for_whom_carusel_table2_title_home|safe }}</a></li>
+                    <li><a href="#tabs-3">{{ text.for_whom_carusel_table3_title_home|safe }}</a></li>
+                    <li><a href="#tabs-4">{{ text.for_whom_carusel_table4_title_home|safe }}</a></li>
+                    <li><a href="#tabs-5">{{ text.for_whom_carusel_table5_title_home|safe }}</a></li>
+                </ul>
+                <div class="tab-content" id="tabs-1">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="about__img">
+                                <img src="{% static 'new_design/img/jpg/dt01.jpg' %}" alt="pic">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about__detail">
+{#                                <h2 class="head-title">{{ text.for_whom_carusel_retail_title_home|safe }}​</h2>#}
+                                <p class="head-subtitle">{{ text.for_whom_carusel_retail_description_home |safe }}</p>
+                                <h3 class="about__detail--title">{{ text.for_whom_carusel_retail_subtitle_home |safe }}</h3>
+                                <ul>
+                                    {{ text.for_whom_carusel_retail_main_home |safe }}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="tabs-2">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="about__img">
+                                <img src="{% static 'new_design/img/jpg/dt02.jpg' %}" alt="pic">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about__detail">
+{#                                <h2 class="head-title">{{ text.for_whom_carusel_retail_title_home|safe }}​</h2>#}
+                                <p class="head-subtitle">{{ text.for_whom_carusel_table2_description_home |safe }}</p>
+                                <h3 class="about__detail--title">{{ text.for_whom_carusel_table2_subtitle_home |safe }}</h3>
+                                <ul>
+                                    {{ text.for_whom_carusel_table2_main_home |safe }}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="tabs-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="about__img">
+                                <img src="{% static 'new_design/img/jpg/dt03.jpg' %}" alt="pic">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about__detail">
+{#                                <h2 class="head-title">{{ text.for_whom_carusel_retail_title_home|safe }}​</h2>#}
+                                <p class="head-subtitle">{{ text.for_whom_carusel_table3_description_home |safe }}</p>
+                                <h3 class="about__detail--title">{{ text.for_whom_carusel_table3_subtitle_home |safe }}</h3>
+                                <ul>
+                                    {{ text.for_whom_carusel_table3_main_home |safe }}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="tabs-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="about__img">
+                                <img src="{% static 'new_design/img/jpg/ecommerce.jpeg' %}" alt="pic">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about__detail">
+{#                                <h2 class="head-title">{{ text.for_whom_carusel_retail_title_home|safe }}​</h2>#}
+                                <p class="head-subtitle">{{ text.for_whom_carusel_table4_description_home |safe }}</p>
+                                <h3 class="about__detail--title">{{ text.for_whom_carusel_table4_subtitle_home |safe }}</h3>
+                                <ul>
+                                    {{ text.for_whom_carusel_table4_main_home |safe }}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="tabs-5">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="about__img">
+                                <img src="{% static 'new_design/img/jpg/dt02.jpg' %}" alt="pic">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about__detail">
+{#                                <h2 class="head-title">{{ text.for_whom_carusel_retail_title_home|safe }}​</h2>#}
+                                <p class="head-subtitle">{{ text.for_whom_carusel_table5_description_home |safe }}</p>
+                                <h3 class="about__detail--title">{{ text.for_whom_carusel_table5_subtitle_home |safe }}</h3>
+                                <ul>
+                                    {{ text.for_whom_carusel_table5_main_home |safe }}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        <div class="about-help">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <img src="{% static 'new_design/img/png/about-help.jpg' %}" alt="pic"/>
+                    </div>
+                    {{text.qizil_kassa_aparat_multi_merchant|safe}}
+                </div>
+                <div class="row">
+                    {{text.qizil_kassa_aparat_multi_merchant_below_text|safe}}
+                    <!-- <div class="col-md-4">
+                        <div class="item">
+                            <img
+                                    src="{% static 'new_design/img/png/about-help/multifunction_icon.png' %}"
+                                    alt=""
+                                    class="item__img"
+                            />
+                            <h4 class="item__title">Personal account</h4>
+                            <p class="item__desc">
+                                Each entrepreneur has an account with access to the full
+                                functionality of the cash register and a mobile application.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="item">
+                            <img
+                                    src="{% static 'new_design/img/png/about-help/receipts_icon.png' %}"
+                                    alt=""
+                                    class="item__img"
+                            />
+                            <h4 class="item__title">Personal account</h4>
+                            <p class="item__desc">
+                                Each entrepreneur has an account with access to the full
+                                functionality of the cash register and a mobile application.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="item">
+                            <img
+                                    src="{% static 'new_design/img/png/about-help/user_login_icon.png' %}"
+                                    alt=""
+                                    class="item__img"
+                            />
+                            <h4 class="item__title">Personal account</h4>
+                            <p class="item__desc">
+                                Each entrepreneur has an account with access to the full
+                                functionality of the cash register and a mobile application.
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="product-info">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-lg-6">
+
+                        <div class="img-slider owl-carousel">
+                            <div class="item">
+                                <img src="{{ product.product_url }}"/>
+                            </div>
+                            <div class="item">
+                                <img src="{{ product.product_url2 }}"/>
+                            </div>
+                            <div class="item">
+                                <img src="{{ product.product_url3 }}"/>
+                            </div>
+                            <div class="item">
+                                <img src="{{ product.product_url4 }}"/>
+                            </div>
+                            <div class="item">
+                                <img src="{{ product.product_url5 }}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="info">
+                            {{text.qizil_kassa_aparat_multi_merchant_info|safe}}
+                            <a href="checkout.html" class="more-btn"><span>{{text.order|safe}}</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <div id="tabs" class="tabs">
+                        <ul class="tab-links">
+                            <li><a href="#pr-tab-1">{{text.retail|safe}}</a></li>
+                            <li><a href="#pr-tab-2">{{text.specification|safe}}</a></li>
+                        </ul>
+                        <div class="tab-content ret" id="pr-tab-1">
+                            <div class="row">
+                                {{text.qizil_kassa_aparat_retail_full_detail|safe}}
+                            </div>
+                        </div>
+                        <div class="tab-content det" id="pr-tab-2">
+                            <table>
+                                
+                                {{text.qizil_kassa_aparat_xaraktr|safe}}
+                            </table>
+                        </div>
+                       </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
+{% endblock %}
+

@@ -1,0 +1,179 @@
+{% extends "new_design/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %} home {% endblock %}
+{% block content %}
+
+    <div class="content">
+      <div class="banner">
+        <div class="container">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">{{text.home|safe}}</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                {{text.services|safe}}
+              </li>
+            </ol>
+          </nav>
+          <h2 class="page-title">{{text.services|safe}}</h2>
+        </div>
+      </div>
+      <div class="services">
+        <div class="container">
+          <div class="services-info">
+            <div class="row">
+              <div class="col-md-6">
+                {{text.services_desc|safe}}
+              </div>
+              <div class="col-md-6">
+                <div class="info-service-centers">
+                  <h4 class="title">
+                    {{text.info_service_centers|safe}}
+                  </h4>
+                  <a href="#servicesMap" class="go"
+                    ><i class="fas fa-map-marker-alt"></i>{{text.service_centers|safe}}</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="services-check">
+            <h2 class="section-title">{{text.services_check_section_title|safe}}</h2>
+            <div class="row">
+              {{text.services_check_section_row|safe}}
+            </div>
+          </div>
+          <div class="services-warn">
+            <div class="wrap">
+              <i class="fas fa-info-circle"></i>
+              <div class="text">
+                 {{text.service_warn_text|safe}}
+              </div>
+            </div>
+          </div>
+          <!-- <div class="services-terms">
+            <h3 class="title">General terms and definitions:</h3>
+            <h4 class="subtitle">Service Center</h4>
+            <p class="desc">
+              An organization authorized to sell SmartOne terminals, original
+              spare parts and accessories to them. As well as carry out repair
+              work and provide service services. Including commissioning,
+              serviceability check, repair (warranty) and decommissioning.
+            </p>
+            <h4 class="subtitle">Service Center</h4>
+            <p class="desc">
+              An organization authorized to sell SmartOne terminals, original
+              spare parts and accessories to them. As well as carry out repair
+              work and provide service services. Including commissioning,
+              serviceability check, repair (warranty) and decommissioning.
+            </p>
+          </div> -->
+          <div class="services-map">
+            <h2 class="section-title">{{text.service_map_title|safe}}</h2>
+            <div class="services-map__wrapper">
+              <!-- <form action="#" class="services-map__form">
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="location">Your location</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="location"
+                      aria-describedby="locationHelp"
+                    />
+                    <small id="locationHelp" class="form-text text-muted"
+                      >Location Lorem ipsum dolor sit amet.</small
+                    >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="Select1">Search radius</label>
+                    <select class="form-control" id="Select1">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="Select2">Results</label>
+                    <select class="form-control" id="Select2">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                  <div class="form-check check col-md-12 mb-4">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      id="Check1"
+                    />
+                    <label class="form-check-label" for="Check1">ЦСО</label>
+                  </div>
+                  <button type="submit" class="more-btn">
+                    <span>Search</span>
+                  </button>
+                </div>
+              </form> -->
+              <div class="services-map__main">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="info-list">
+                      {%for dealer in dealers%}
+                      <div class="info-list__item">
+                        <h4 class="info-list__item--title">
+                          {{dealer.name}}
+                        </h4>
+                        <p class="info-list__item--text">
+                          {{dealer.location}}
+                        </p>
+                        <div class="accordion_block">
+                          <div class="accordion_title">{{text.more|safe}}</div>
+                          <div class="accordion_content">
+                            <div class="item">
+                              <span class="title">{{text.phone|safe}}</span>
+                              <a href="tel:0522-322-611">{{dealer.number}}</a>
+                            </div>
+                            <div class="item">
+                              <span class="title">{{text.hours|safe}}</span>
+                              <ul>
+                                <li>
+                                  <span>{{text.weekly_days|safe}}</span>
+                                  <span>09:00-18:00</span>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="item">
+                              <span class="direction">84.12km</span>
+                              <a href="#">{{text.direction|safe}}</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {%endfor%}
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="map">
+                      <iframe src="https://www.google.com/maps/d/embed?mid=1b9qSFDXqNSHhpeTYi8loq2nSM0jYB4FG&ehbc=2E312F" width="640" height="480"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="services-warn">
+            <div class="wrap">
+              <i class="fas fa-info-circle"></i>
+              {{text.services_warn2|safe}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}

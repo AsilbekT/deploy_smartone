@@ -1,0 +1,508 @@
+{% extends "new_design/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %} home {% endblock %}
+{% block content %}
+
+
+   <div class="content">
+      <div class="banner">
+         <div class="container">
+            <nav aria-label="breadcrumb">
+               <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="{% url 'products' %}">Products</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Product</li>
+               </ol>
+            </nav>
+            <h2 class="page-title">Product</h2>
+         </div>
+      </div>
+      <div class="product-banner">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="product-banner__img">
+                     <img src="{% static 'new_design/img/png/bnpr01.png' %}">
+                  </div>
+               </div>
+               <div class="col-md-6 px-0 px-md-4">
+                  <p class="product-banner__desc">
+                     SmartOne Budget is a universal solution for all areas of business, it
+                     is the best choice for those who value mobility
+                     and affordable price of cash register equipment.
+                  </p>
+                  <p class="product-banner__desc">
+                     It performs the functions of an online cash register, a bank terminal, a printer, a fiscal
+                     registrar and an Android
+                     computer.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="features pr pt-0 pt-md-5">
+         <div class="container pt-0 pt-md-5 ">
+            <div class="row pt-3">
+               <div class="col-md-6 mb-3 mb-md-0">
+                  <div class="features__item">
+                     <img src="{% static 'new_design/img/png/feapr01.png' %}" alt="pic" class="features__item--img">
+                     <div class="features__item--details">
+                        <h3>24/7 SUPPORT</h3>
+                        <p>Support hotline, online chat. Extensive knowledge base, technical consultations, service
+                           centers
+                           throughout Ukraine</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6 mb-3 mb-md-0">
+                  <div class="features__item">
+                     <img src="{% static 'new_design/img/png/feapr02.png' %}" alt="pic" class="features__item--img">
+                     <div class="features__item--details">
+                        <h3>NCREASE IN PROFITABILITY</h3>
+                        <p>Automatic reporting, increasing the flow of customers. No additional costs for staff training
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6 mb-3 mb-md-0">
+                  <div class="features__item">
+                     <img src="{% static 'new_design/img/png/feapr03.png' %}" alt="pic" class="features__item--img">
+                     <div class="features__item--details">
+                        <h3>24/7 SUPPORT</h3>
+                        <p>Support hotline, online chat. Extensive knowledge base, technical consultations, service
+                           centers
+                           throughout Ukraine</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6 mb-3 mb-md-0">
+                  <div class="features__item">
+                     <img src="{% static 'new_design/img/png/feapr04.png' %}" alt="pic" class="features__item--img">
+                     <div class="features__item--details">
+                        <h3>NCREASE IN PROFITABILITY</h3>
+                        <p>Automatic reporting, increasing the flow of customers. No additional costs for staff training
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="details">
+         <div class="container">
+            <h2 class="section-title">For whom?</h2>
+            <div id="tabs" class="tabs">
+               <ul class="tab-links">
+                  <li><a href="#tabs-1">Retail</a></li>
+                  <li><a href="#tabs-2">Cafes and restaurants</a></li>
+                  <li><a href="#tabs-3">Services</a></li>
+                  <li><a href="#tabs-4">E-commerce</a></li>
+                  <li><a href="#tabs-5">Logistics</a></li>
+               </ul>
+               <div class="tab-content" id="tabs-1">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="about__img">
+                           <img src="{% static 'new_design/img/jpg/dt01.jpg' %}" alt="pic">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="about__detail">
+                           <h3 class="about__detail--title">Retail trade</h3>
+                           <ul>
+                              <li>Mobile cash register application with a software registrar of settlement operations
+                              </li>
+                              <li>Control of business processes from anywhere in the world</li>
+                              <li>Modern mobile smart terminal</li>
+                              <li>Automatic generation of reports</li>
+                              <li>Mobile cash register application with a software registrar of settlement operations
+                              </li>
+                              <li>Minimum costs for the operation of the system</li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="tab-content" id="tabs-2">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="about__img">
+                           <img src="{% static 'new_design/img/jpg/dt02.jpg' %}" alt="pic">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="about__detail">
+                           <h3 class="about__detail--title">Cafes and restaurants</h3>
+                           <ul>
+                              <li>Mobile cash register application with a software registrar of settlement operations
+                              </li>
+                              <li>Control of business processes from anywhere in the world</li>
+                              <li>Modern mobile smart terminal</li>
+                              <li>Automatic generation of reports</li>
+                              <li>Mobile cash register application with a software registrar of settlement operations
+                              </li>
+                              <li>Minimum costs for the operation of the system</li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="tab-content" id="tabs-3">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="about__img">
+                           <img src="{% static 'new_design/img/jpg/dt03.jpg' %}" alt="pic">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="about__detail">
+                           <h3 class="about__detail--title">Services</h3>
+                           <ul>
+                              <li>Mobile cash register application with a software registrar of settlement operations
+                              </li>
+                              <li>Control of business processes from anywhere in the world</li>
+                              <li>Modern mobile smart terminal</li>
+                              <li>Automatic generation of reports</li>
+                              <li>Mobile cash register application with a software registrar of settlement operations
+                              </li>
+                              <li>Minimum costs for the operation of the system</li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="tab-content" id="tabs-4">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="about__img">
+                           <img src="{% static 'new_design/img/jpg/dt01.jpg' %}" alt="pic">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="about__detail">
+                           <h3 class="about__detail--title">Logistics</h3>
+                           <ul>
+                              <li>Mobile cash register application with a software registrar of settlement operations
+                              </li>
+                              <li>Control of business processes from anywhere in the world</li>
+                              <li>Modern mobile smart terminal</li>
+                              <li>Automatic generation of reports</li>
+                              <li>Mobile cash register application with a software registrar of settlement operations
+                              </li>
+                              <li>Minimum costs for the operation of the system</li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="tab-content" id="tabs-5">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="about__img">
+                           <img src="{% static 'new_design/img/jpg/dt02.jpg' %}" alt="pic">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="about__detail">
+                           <h3 class="about__detail--title">Online store</h3>
+                           <ul>
+                              <li>Mobile cash register application with a software registrar of settlement operations
+                              </li>
+                              <li>Control of business processes from anywhere in the world</li>
+                              <li>Modern mobile smart terminal</li>
+                              <li>Automatic generation of reports</li>
+                              <li>Mobile cash register application with a software registrar of settlement operations
+                              </li>
+                              <li>Minimum costs for the operation of the system</li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="partners">
+         <div class="container">
+            <h2 class="section-title">Acquiring Smart Pay</h2>
+            <p class="desc">Enable payment by cards and accept payments from customers by any means</p>
+            <div class="row">
+               <div class="col-md-6">
+                  <ul>
+                     <li>Connection in 2 working days</li>
+                     <li>Fixed commission only 2%</li>
+                     <li>Crediting money on the next day</li>
+                     <li>24/7 online support</li>
+                     <li>Payment by cards of any bank</li>
+                     <li>Fast integration of the payment module</li>
+                  </ul>
+               </div>
+               <div class="col-md-6">
+                  <div class="partner-banks">
+                     <h3 class="partner-banks__title">Partner banks</h3>
+                     <div class="partner-banks__items">
+                        <img src="{% static 'new_design/img/png/banks/vostok.png' %}">
+                        <img src="{% static 'new_design/img/png/banks/raiffaizen.png' %}">
+                        <img src="{% static 'new_design/img/png/banks/privat.png' %}">
+                        <img src="{% static 'new_design/img/png/banks/oschad.png' %}">
+                     </div>
+                  </div>
+                  <div class="partner-payments">
+                     <h3 class="partner-payments__title">Partner banks</h3>
+                     <div class="partner-payments__items">
+                        <img src="{% static 'new_design/img/png/payments/eq_alipay.png' %}">
+                        <img src="{% static 'new_design/img/png/payments/eq_pp.png' %}">
+                        <img src="{% static 'new_design/img/png/payments/eq_visa.png' %}">
+                        <img src="{% static 'new_design/img/png/payments/eq_alipay.png' %}">
+                        <img src="{% static 'new_design/img/png/payments/eq_pp.png' %}">
+                        <img src="{% static 'new_design/img/png/payments/eq_visa.png' %}">
+                        <img src="{% static 'new_design/img/png/payments/eq_alipay.png' %}">
+                        <img src="{% static 'new_design/img/png/payments/eq_pp.png' %}">
+                        <img src="{% static 'new_design/img/png/payments/eq_visa.png' %}">
+                        <img src="{% static 'new_design/img/png/payments/eq_alipay.png' %}">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="about-help">
+         <div class="container">
+            <div class="row mb-4">
+               <div class="col-md-6">
+                  <img src="{% static 'new_design/img/png/about-help.jpg' %}" alt="pic">
+               </div>
+               <div class="col-md-6">
+                  <h3 class="title">What is a Multi merchant?</h3>
+                  <p class="desc">This is a SmartOne configuration that allows you to register several entrepreneurs on
+                     one device. Thanks to the “Multi
+                     Merchant” function, the SmartOne online sales register is ideal for entrepreneurs (beauty salon,
+                     wellness center). One
+                     device is enough for each specialist to conduct their own calculations with clients. Of course,
+                     this is a profitable
+                     purchase! After all, the online sales register is bought in a fold, and every registered user can
+                     accept payment from
+                     it!</p>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="item">
+                     <img src="{% static 'new_design/img/png/about-help/multifunction_icon.png' %}" alt="" class="item__img">
+                     <h4 class="item__title">Personal account</h4>
+                     <p class="item__desc">Each entrepreneur has an account with access to the full functionality of the
+                        cash register and a mobile application.</p>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="item">
+                     <img src="{% static 'new_design/img/png/about-help/receipts_icon.png' %}" alt="" class="item__img">
+                     <h4 class="item__title">Personal account</h4>
+                     <p class="item__desc">Each entrepreneur has an account with access to the full functionality of the
+                        cash register and a mobile application.</p>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="item">
+                     <img src="{% static 'new_design/img/png/about-help/user_login_icon.png' %}" alt="" class="item__img">
+                     <h4 class="item__title">Personal account</h4>
+                     <p class="item__desc">Each entrepreneur has an account with access to the full functionality of the
+                        cash register and a mobile application.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="product-info">
+         <div class="container">
+            <div class="row mb-4">
+               <div class="col-lg-6">
+                  <div class="img-slider owl-carousel">
+                     <div class="item">
+                        <img src="{{ product.product_url }}">
+                     </div>
+                     <div class="item">
+                        <img src="{{ product.product_url2 }}">
+                     </div>
+                     <div class="item">
+                        <img src="{{ product.product_url3 }}">
+                     </div>
+                      <div class="item">
+                        <img src="{{ product.product_url4 }}">
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-6">
+                  <div class="info">
+                     <h3 class="info__title">SmartOne Budget online sales register</h3>
+                     <p class="info__desc">A fully ready-to-use smart terminal with a pre-installed SmartOne Mobile POS
+                        application. The online cash register
+                        combines the most powerful functionality and quite compact dimensions, thanks to which you can
+                        use this device both in
+                        courier delivery services and at small cashier counters.</p>
+                     <a href="checkout.html" class="more-btn"><span>Order</span></a>
+                  </div>
+               </div>
+            </div>
+            <div class="product-details">
+               <div id="tabs" class="tabs">
+                  <ul class="tab-links">
+                     <li><a href="#pr-tab-1">Retail</a></li>
+                     <li><a href="#pr-tab-2">Cafes and restaurants</a></li>
+                     <li><a href="#pr-tab-3">Services</a></li>
+                  </ul>
+                  <div class="tab-content ret" id="pr-tab-1">
+                     <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                           <h4>Electronic receipt</h4>
+                           <p class="desc">Create a receipt with a QR code displayed on the display and send it to the
+                              client by e-mail. The database of electronic
+                              documents is formed in the SmartOne ERP Personal Account.</p>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                           <h4>Electronic receipt</h4>
+                           <p class="desc">Create a receipt with a QR code displayed on the display and send it to the
+                              client by e-mail. The
+                              database of electronic
+                              documents is formed in the SmartOne ERP Personal Account.</p>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                           <h4>Electronic receipt</h4>
+                           <p class="desc">Create a receipt with a QR code displayed on the display and send it to the
+                              client by e-mail. The
+                              database of electronic
+                              documents is formed in the SmartOne ERP Personal Account.</p>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                           <h4>Electronic receipt</h4>
+                           <p class="desc">Create a receipt with a QR code displayed on the display and send it to the
+                              client by e-mail. The
+                              database of electronic
+                              documents is formed in the SmartOne ERP Personal Account.</p>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                           <h4>Electronic receipt</h4>
+                           <p class="desc">Create a receipt with a QR code displayed on the display and send it to the
+                              client by e-mail. The
+                              database of electronic
+                              documents is formed in the SmartOne ERP Personal Account.</p>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                           <h4>Electronic receipt</h4>
+                           <p class="desc">Create a receipt with a QR code displayed on the display and send it to the
+                              client by e-mail. The
+                              database of electronic
+                              documents is formed in the SmartOne ERP Personal Account.</p>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                           <h4>Electronic receipt</h4>
+                           <p class="desc">Create a receipt with a QR code displayed on the display and send it to the
+                              client by e-mail. The
+                              database of electronic
+                              documents is formed in the SmartOne ERP Personal Account.</p>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                           <h4>Electronic receipt</h4>
+                           <p class="desc">Create a receipt with a QR code displayed on the display and send it to the
+                              client by e-mail. The
+                              database of electronic
+                              documents is formed in the SmartOne ERP Personal Account.</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="tab-content det" id="pr-tab-2">
+                     <table>
+                        <tr>
+                           <td>Smart terminal model</td>
+                           <td>Smart Budget</td>
+                        </tr>
+                        <tr>
+                           <td>Display</td>
+                           <td>5.5", capacitive</td>
+                        </tr>
+                        <tr>
+                           <td>Screen Resolution</td>
+                           <td>1280 x 720 pixels</td>
+                        </tr>
+                        <tr>
+                           <td>Chipset</td>
+                           <td>Kun T11, Quad-core, 1.1 GHz</td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="tab-content cost" id="pr-tab-3">
+                     <div class="row order">
+                        <div class="col-md-6 form p-4">
+                           <h4 class="title">Order Configuration</h4>
+                           <form action="#">
+                              <p>Mobile cash register with acquiring</p>
+                              <select class="form-control">
+                                 <option>Option 1</option>
+                                 <option>Option 2</option>
+                                 <option>Option 3</option>
+                              </select>
+                              <p>Mobile cash register with acquiring</p>
+                              <select class="form-control">
+                                 <option>Option 1</option>
+                                 <option>Option 2</option>
+                                 <option>Option 3</option>
+                              </select>
+                              <p>Mobile cash register with acquiring</p>
+                              <select class="form-control">
+                                 <option>Option 1</option>
+                                 <option>Option 2</option>
+                                 <option>Option 3</option>
+                              </select>
+                              <p>Mobile cash register with acquiring</p>
+                              <select class="form-control">
+                                 <option>Option 1</option>
+                                 <option>Option 2</option>
+                                 <option>Option 3</option>
+                              </select>
+                           </form>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="cost">
+                              <h4 class="title">Total cost</h4>
+                              <table>
+                                 <tr>
+                                    <td>Mobile Cash Register With Acquiring</td>
+                                    <td>₴ 9,840.00</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Mobile Cash Register With Acquiring</td>
+                                    <td>₴ 9,840.00</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Mobile Cash Register With Acquiring</td>
+                                    <td>₴ 9,840.00</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Mobile Cash Register With Acquiring</td>
+                                    <td>₴ 9,840.00</td>
+                                 </tr>
+                                 <tr class="total monthly">
+                                    <td>Monthly Payment</td>
+                                    <td>₴ 600.00</td>
+                                 </tr>
+                                 <tr class="total one-time">
+                                    <td>Monthly Payment</td>
+                                    <td>₴ 600.00</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+
+
+{% endblock %}

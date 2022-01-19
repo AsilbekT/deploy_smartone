@@ -1,0 +1,133 @@
+{% extends "new_design/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %} home {% endblock %}
+{% block content %}
+
+   <div class="content">
+      <div class="banner">
+         <div class="container">
+            <nav aria-label="breadcrumb">
+               <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="{% url 'products' %}">Products</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">My Cart</li>
+               </ol>
+            </nav>
+            <h2 class="page-title">{{text.about|safe}}</h2>
+         </div>
+      </div>
+      <div class="about-content">
+         <div class="container">
+            <div class="row mb-5">
+               <div class="col-lg-6 mb-4">
+                  <div class="item">
+                     <i class="fas fa-user"></i>
+                     <div class="text">
+                        <h3 class="title">{{text.who_we_are|safe}}</h3>
+                        <p class="desc">{{text.who_we_are_answer|safe}}</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-6 mb-4">
+                  <div class="item">
+                     <i class="fas fa-rocket"></i>
+
+                     <div class="text">
+                        <h3 class="title">{{text.about_page_2_coumn_title|safe}}</h3>
+                        <p class="desc">{{text.about_page_2_coumn_text|safe}}</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-6 mb-4">
+                  <div class="item">
+                     <i class="fas fa-info"></i>
+                     <div class="text">
+                        <h3 class="title">{{text.about_page_3_coumn_title|safe}}</h3>
+                        <p class="desc">{{text.about_page_3_coumn_text|safe}}</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-6 mb-4">
+                  <div class="item">
+                     <i class="far fa-star"></i>
+                     <div class="text">
+                        <h3 class="title">{{text.about_page_4_coumn_title|safe}}</h3>
+                        <p class="desc">{{text.about_page_4_coumn_text|safe}}</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="counter-block mb-5">
+               <h2 class="section-title mb-5">{{text.smartone_in_numbers|safe}}</h2>
+               <div class="row">
+                  <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                     <div class="counter-item">
+                        <h2 class="counter">11</h2>
+                        <p class="desc">{{text.smartone_in_numbers_n1|safe}}</p>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                     <div class="counter-item">
+                        <h2 class="counter">42</h2>
+                        <p class="desc">{{text.smartone_in_numbers_n2|safe}}</p>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                     <div class="counter-item">
+                        <h2 class="counter">115</h2>
+                        <p class="desc">{{text.smartone_in_numbers_n3|safe}}</p>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                     <div class="counter-item">
+                        <h2 class="counter">36</h2>
+                        <p class="desc">{{text.smartone_in_numbers_n4|safe}}</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="about-details">
+               <h2 class="section-title mb-4">{{text.partner_program|safe}}</h2>
+               <p class="desc">{{text.partner_program_text|safe}}</p>
+               
+               <div class="row mt-5 mb-5">
+                  <div class="col-lg-6 mb-4 mb-lg-0">
+                     <h4 class="title mb-2">{{text.who_can_become_our_partner|safe}}</h4>
+                     <p class="desc">{{text.who_can_become_partner_text|safe}}</p>
+                     <br>
+                     
+                     <a href="{% url 'products' %}" class="slide-btn pr-btn">
+                        {{text.all_products|safe}}
+                        <span class="first"></span>
+                        <span class="second"></span>
+                        <span class="third"></span>
+                        <span class="fourth"></span>
+                     </a>
+                  </div>
+                  <div class="col-lg-6">
+                     <img class="details-img" src="{% static 'new_design/img/jpg/ab01.jpg' %}" alt="pic">
+                  </div>
+               </div>
+            </div>
+            <div class="our-news mt-5">
+               <div class="row">
+                  <div class="col-md-6 text-center">
+                     <h3 class="title">{{text.want_to_learn_more_question|safe}}</h3>
+                     <p class="desc">{{text.want_to_learn_more_question_title|safe}}
+                     </p>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="center">
+                        <a href="{% url 'all_news' %}" class="more-btn">
+                           <span>{{text.smartone_news|safe}}</span>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+{% endblock %}

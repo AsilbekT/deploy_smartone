@@ -1,0 +1,71 @@
+{% extends "new_design/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %} home {% endblock %}
+{% block content %}
+
+    <div class="content">
+        <div class="banner">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'products' %}">Products</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">My Cart</li>
+                    </ol>
+                </nav>
+                <h2 class="page-title">Cart Products</h2>
+            </div>
+        </div>
+        <div class="cart-products">
+            <div class="container">
+                <div class="items">
+                    {% for i in items %}
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-lg-4 mb-2 mb-lg-0 border-right">
+                                    <div class="product-info">
+                                        <div class="product-info__img">
+                                            <img src="{{ i.product.product_url }}" alt="pic">
+                                        </div>
+                                        <div class="product-info__text">
+                                            <h2 class="product-info__text--title">{{ i.product.name }}</h2>
+                                            <p class="product-info__text--desc">{{ i.product.title }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-2 mb-lg-0 border-right">
+                                    <div class="product-quantity">
+                                        <button class="decProduct update-btn" data-product="{{ i.product.id }}" data-action="remove">-</button>
+                                        <input class="quantity__input" type="number" id="1" value="{{ i.quantity }}" min="1"
+                                               max="100"/>
+                                        <button class="incProduct update-btn" data-product="{{ i.product.id }}" data-action="add">+</button>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-2 mb-lg-0">
+                                    <div class="options">
+                                        <div class="price">
+{#                                            <h4 class="real-price">550$</h4>#}
+                                            <h3 class="discount-price">${{ i.get_total }}</h3>
+                                        </div>
+                                        <button class="delete-product">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                   
+                </div>
+                <div class="center mt-5">
+                    <a href="{% url 'checkout' %}" class="more-btn"><span>Checkout</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

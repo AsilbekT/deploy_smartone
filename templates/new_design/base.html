@@ -1,0 +1,266 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'new_design/fonts/fa/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'new_design/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'new_design/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'new_design/css/animate.min.css' %}">
+
+    <!-- My Custom CSS Files -->
+    <link rel="stylesheet" href="{% static 'new_design/css/main.css' %}">
+    <title>{% block title %} base {% endblock %}</title>
+    <script>
+        var user = '{{ request.user }}'
+
+        function getToken(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        const csrftoken = getToken('csrftoken');
+
+        function getCookies(name) {
+            var cookieArr = document.cookie.split(";")
+            for (var i = 0; i < cookieArr.length; i++) {
+                var cookiePair = cookieArr[i].split("=")
+                if (name == cookiePair[0].trim()) {
+                    return decodeURIComponent(cookiePair[1])
+                }
+            }
+            return null
+        }
+
+        var cart = JSON.parse(getCookies('cart'))
+
+        if (cart == undefined) {
+            cart = {}
+            console.log("cart created", cart)
+            document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+        }
+        console.log("cart: ", cart)
+
+    </script>
+</head>
+<body>
+<div class="goTop"></div>
+
+{% include "new_design/nav.html" %}
+
+{% block content %} {% endblock %}
+
+<!-- Answers -->
+<div class="answers">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <img src="{% static 'new_design/img/png/callback.png' %}" alt="pic">
+            </div>
+            <div class="col-md-7">
+                <div class="contact-block">
+                    <h2 class="section-title">{{text.answers_title |safe}}</h2>
+                    <p class="desc">{{text.answers_description|safe}}</p>
+                    <form action="#">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="name" placeholder="Name">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="tel" class="form-control" placeholder="Telephone">
+                            </div>
+                        </div>
+                        <div class="form-check check">
+                            <input type="checkbox" class="form-check-input" id="ch1">
+                            <label class="form-check-label" for="ch1">{{text.answers_terms|safe}}</label>
+                        </div>
+                        <button class="contact-btn" type="submit">
+                            <span>{{text.answers_button|safe}}</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Answers End -->
+
+<!-- Subscribe -->
+<div class="subscribe">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form action="#" class="subscribe__form">
+                    <h3 class="subscribe__form--title">{{text.subscribe_title|safe}}</h3>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Your E-mail">
+                        <button type="submit" class="more-btn"><span>{{text.subscribe_button|safe}}</span></button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <div class="social">
+                    <h3 class="social__title">{{text.subscribe_social__title|safe}}</h3>
+                    <div class="social__items">
+                        <a href="#" class="social__item">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social__item">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social__item">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Subscribe End -->
+
+
+<!-- Footer -->
+<div class="footer">
+    <div class="container">
+        <div class="footer__top">
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                    <div class="row">
+                        <div class="col-12 mb-sm-0">
+                            <div class="footer__top--menu">
+                                <h4>{{text.about|safe}}</h4>
+                                <ul>
+                                    <li><a href="{% url 'about' %}">{{text.about_company|safe}}</a></li>
+                                    <li><a href="{% url 'all_news' %}">{{text.news|safe}}</a></li>
+                                    <li><a href="{% url 'contact' %}">{{text.contact|safe}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                    <div class="row">
+                        <div class="col-12 mb-sm-0">
+                            <div class="footer__top--menu">
+                                <h4>POS terminals</h4>
+                                <ul>
+                                    {% for product in products %}
+                                        <li><a href="{% url 'product_detail' id=product.id %}/">{{ product.name }}</a>
+                                        </li>
+                                    {% endfor %}
+                                    {% for product in productServices %}
+                                        <li>
+                                            <a href="{% url 'product_services_detail' id=product.id %}">{{ product.name }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                    <div class="footer__top--info">
+                        <div class="item">
+                            {{text.sales_department|safe}}
+                            <a href="tel:+380673125315">+998 71 256-78-40</a>
+                        </div>
+                        <div class="item">
+                            {{text.support_footer|safe}}<a href="tel:+380673125315">+998 71 205 84 00</a>
+                        </div>
+                        <div class="item">
+                            <i class="fas fa-mail-bulk"></i>
+                            <a
+                                    href="mailto:
+sales@smartone.com.ua"
+                            >info@smartone.uz</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__main">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="app">
+                        <h4 class="app__title">{{text.download_app_text|safe}}</h4>
+                        <a href="#" class="app__link">
+                            <img src="{% static 'new_design/' %}img/png/app.png" alt="pic"/>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="payments">
+                        <h4 class="payments__title">{{text.payment_footer|safe}}</h4>
+                        <div class="payments__items">
+                            <a href="#" class="payments__item">
+                                <img src="{% static 'new_design/img/png/humo_big.png' %}" alt="pic"/>
+                            </a>
+                            <a href="#" class="payments__item">
+                                <img src="{% static 'new_design/img/png/masterCard_big.png' %}" alt="pic"/>
+                            </a>
+                            <a href="#" class="payments__item">
+                                <img src="{% static 'new_design/img/png/uzcard_big.png' %}" alt="pic"/>
+                            </a>
+                            <a href="#" class="payments__item">
+                                <img src="{% static 'new_design/img/png/masterCard_big.png' %}" alt="pic"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>© 2021 SmartOne Uzbekistan</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="links">
+                        <a href="#">{{text.privacy_footer|safe}}</a>
+                        |
+                        <a href="#">{{text.public_offer_footer|safe}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+<!-- All JS Files -->
+<script src="{% static 'new_design/js/jquery-3.6.0.js' %}"></script>
+<script src="{% static 'new_design/js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'new_design/js/jquery-migrate-3.0.1.js' %}"></script>
+<script src="{% static 'new_design/js/waypoints.min.js' %}"></script>
+<script src="{% static 'new_design/js/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'new_design/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'new_design/js/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'new_design/js/debug.addIndicators.min.js' %}"></script>
+<script src="{% static 'new_design/js/animation.gsap.min.js' %}"></script>
+<script src="{% static 'new_design/js/gsap.min.js' %}"></script>
+<script src="{% static 'new_design/js/ScrollTrigger.min.js' %}"></script>
+<script src="{% static 'new_design/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'new_design/js/video.min.js' %}"></script>
+
+<!-- My Custom JS Files -->
+<script src="{% static 'new_design/js/main.js' %}"></script>
+</body>
+</html>

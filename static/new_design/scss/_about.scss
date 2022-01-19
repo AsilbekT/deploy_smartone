@@ -1,0 +1,42 @@
+.about {
+   padding: 50px 0;
+   &__detail {
+      &--title {
+         @include fs-24-fw-500;
+         margin-bottom: 30px;
+         color: $textColor;
+      }
+      ul {
+         margin-bottom: 30px;
+         li {
+            padding-left: 20px;
+            margin-bottom: 10px;
+            @include fs-14-fw-400;
+            color: $textColor;
+            position: relative;
+            &::before {
+               content: "";
+               position: absolute;
+               width: 7px;
+               height: 7px;
+               border-radius: 50%;
+               background: $ndColor;
+               left: 0;
+               top: 50%;
+               transform: translateY(-50%);
+            }
+         }
+      }
+   }
+   &__img {
+      width: 100%;
+      height: 340px;
+      overflow: hidden;
+      border-radius: 15px;
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+   }
+}

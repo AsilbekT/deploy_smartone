@@ -1,0 +1,30 @@
+// css files
+@import "./fonts";
+@import "./var";
+@import "./mixins";
+
+@import "./base";
+
+@import "./animations";
+
+//Sections
+@import "./contact";
+@import "./content";
+
+@import "./navigation";
+@import "./slider";
+@import "./products";
+@import "./about";
+@import "./features";
+@import "./video-guide";
+@import "./details";
+@import "./guides";
+@import "./answers";
+@import "./subscribe";
+@import "./footer";
+
+//Responsive
+@import "./responsive";
+
+//Dark Mode
+@import "./darkMode";

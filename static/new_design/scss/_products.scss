@@ -1,0 +1,109 @@
+.products {
+   padding: 50px 0;
+   .owl-carousel {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+   }
+   .item {
+      margin: 10px 35px;
+      box-shadow: 0 0 3px 0 rgba($color: $dark, $alpha: 0.25);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: $tr box-shadow;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: $light;
+      &:hover {
+         box-shadow: 0 0 10px 0 rgba($color: $stColor, $alpha: 0.5);
+      }
+      &__img {
+         width: 100%;
+         height: 230px;
+         overflow: hidden;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         img {
+            height: 80%;
+            object-fit: contain;
+         }
+      }
+      &__details {
+         padding: 0 20px;
+         &--title {
+            @include fs-20-fw-500;
+            color: $textColor;
+            margin-bottom: 10px;
+         }
+         &--desc {
+            @include fs-14-fw-400;
+            color: $textColor;
+            margin-bottom: 20px;
+         }
+      }
+      &__btns {
+         padding: 0 20px 20px;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+      }
+   }
+   .container {
+      .center {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin-top: 20px;
+         & > .pr-btn {
+            overflow: hidden;
+            display: inline-block;
+            border-color: $stColor;
+            margin: 0 auto;
+            text-align: center;
+            &::before {
+               content: "";
+               position: absolute;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100%;
+               background: $stColor;
+               z-index: -1;
+            }
+            span {
+               z-index: -1;
+            }
+            &:hover {
+               border-color: $ndColor;
+            }
+         }
+      }
+   }
+}
+
+/* Equal Heights for OwlCarousel 2 */
+
+.owl-carousel {
+   .owl-stage {
+      display: flex;
+   }
+   .owl-item {
+      display: flex;
+      flex: 1 1 auto;
+   }
+   .caption {
+      display: flex;
+      flex: 1 0 auto;
+      flex-direction: column;
+   }
+   .flex-text {
+      flex-grow: 1;
+   }
+   .thumbnail {
+      display: flex;
+      flex-direction: column;
+      margin: 0 15px;
+   }
+}

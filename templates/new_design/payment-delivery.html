@@ -1,0 +1,203 @@
+{% extends "new_design/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %} home {% endblock %}
+{% block content %}
+
+
+    <div class="content">
+      <div class="banner">
+        <div class="container">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">{{text.home|safe}}</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                {{text.payment_and_delivery|safe}}
+              </li>
+            </ol>
+          </nav>
+          <h2 class="page-title">{{text.payment_and_delivery|safe}}</h2>
+        </div>
+      </div>
+      <div class="delivery">
+        <div class="container">
+          <div class="delivery-terms">
+            <div class="row">
+              <div class="col-md-6">
+                {{text.delivery_terms|safe}}
+              </div>
+              <div class="col-md-6">
+                <div class="delivery-terms__img">
+                  <img src="{% static 'new_design/img/png/novapochta_logo.png' %}" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="delivery-methods">
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="delivery-methods__item">
+                  <div class="delivery-methods__item--icon">
+                    <i class="fas fa-credit-card"></i>
+                  </div>
+                  {{text.delivery_methods1|safe}}
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="delivery-methods__item">
+                  <div class="delivery-methods__item--icon">
+                    <i class="fas fa-paper-plane"></i>
+                  </div>
+                  {{text.delivery_methods2|safe}}
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="delivery-methods__item">
+                  <div class="delivery-methods__item--icon">
+                    <i class="fas fa-search-location"></i>
+                  </div>
+                  {{text.delivery_methods3|safe}}
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="delivery-methods__item">
+                  <div class="delivery-methods__item--icon">
+                    <i class="fas fa-box"></i>
+                  </div>
+                  {{text.delivery_methods4|safe}}
+                </div>
+              </div>
+            </div>
+            <div class="learn-more">
+              <h4 class="title">
+                {{text.learn_more_full|safe}}
+              </h4>
+              <a
+                href="{% url 'contact' %}"
+                class="contact-btn"
+                data-toggle="modal"
+                data-target="#contactModalCenter"
+              >
+                <span>{{text.learn_more|safe}}</span>
+              </a>
+            </div>
+          </div>
+          <div class="payment-terms">
+            <div class="row">
+              <div class="col-md-6">
+                {{text.payment_terms|safe}}
+              </div>
+              <div class="col-md-6">
+                <div class="payment-terms__img">
+                  <img src="{% static 'new_design/img/png/humo_big.png' %}" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="payment-methods">
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="payment-methods__item">
+                  <div class="payment-methods__item--img">
+                    <img src="{% static 'new_design/img/png/humo_big.png' %}" />
+                  </div>
+                  <h4 class="payment-methods__item--title">VISA/MASTERCARD</h4>
+                  <p class="payment-methods__item--desc">
+                    You can pay for your order online with Visa and MasterCard
+                    without commission.
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="payment-methods__item">
+                  <div class="payment-methods__item--img">
+                    <img src="{% static 'new_design/img/png/humo_big.png' %}" />
+                  </div>
+                  <h4 class="payment-methods__item--title">VISA/MASTERCARD</h4>
+                  <p class="payment-methods__item--desc">
+                    You can pay for your order online with your order online
+                    with Visa and MasterCard without commission.
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="payment-methods__item">
+                  <div class="payment-methods__item--img">
+                    <img src="{% static 'new_design/img/png/humo_big.png' %}" />
+                  </div>
+                  <h4 class="payment-methods__item--title">VISA/MASTERCARD</h4>
+                  <p class="payment-methods__item--desc">
+                    You can pay for your order online with Visa and MasterCard
+                    without commission.
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="payment-methods__item">
+                  <div class="payment-methods__item--img">
+                    <img src="{% static 'new_design/img/png/humo_big.png' %}" />
+                  </div>
+                  <h4 class="payment-methods__item--title">VISA/MASTERCARD</h4>
+                  <p class="payment-methods__item--desc">
+                    You can pay for your order online with Visa and MasterCard
+                    without commission.
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="payment-methods__item">
+                  <div class="payment-methods__item--img">
+                    <img src="{% static 'new_design/img/png/humo_big.png' %}" />
+                  </div>
+                  <h4 class="payment-methods__item--title">VISA/MASTERCARD</h4>
+                  <p class="payment-methods__item--desc">
+                    You can pay for your order online with Visa and MasterCard
+                    without commission.
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="payment-methods__item">
+                  <div class="payment-methods__item--img">
+                    <img src="{% static 'new_design/img/png/humo_big.png' %}" />
+                  </div>
+                  <h4 class="payment-methods__item--title">VISA/MASTERCARD</h4>
+                  <p class="payment-methods__item--desc">
+                    You can pay for your order online with Visa and MasterCard
+                    without commission.
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="payment-methods__item">
+                  <div class="payment-methods__item--img">
+                    <img src="{% static 'new_design/img/png/humo_big.png' %}" />
+                  </div>
+                  <h4 class="payment-methods__item--title">VISA/MASTERCARD</h4>
+                  <p class="payment-methods__item--desc">
+                    You can pay for your order online with Visa and MasterCard
+                    without commission.
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="payment-methods__item">
+                  <div class="payment-methods__item--img">
+                    <img src="{% static 'new_design/img/png/humo_big.png' %}" />
+                  </div>
+                  <h4 class="payment-methods__item--title">VISA/MASTERCARD</h4>
+                  <p class="payment-methods__item--desc">
+                    You can pay for your order online with Visa and MasterCard
+                    without commission.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}

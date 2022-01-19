@@ -1,0 +1,108 @@
+{% extends "new_design/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %} home {% endblock %}
+{% block content %}
+
+   <div class="content">
+      <div class="banner">
+         <div class="container">
+            <nav aria-label="breadcrumb">
+               <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="{% url 'products' %}">Products</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Contact</li>
+               </ol>
+            </nav>
+            <h2 class="page-title">{{text.contact|safe}}</h2>
+         </div>
+      </div>
+      <div class="contact">
+         <div class="container">
+            <!-- <div class="items">
+               <div class="row">
+                  <div class="col-md-6 mb-4 mb-md-0">
+                     <div class="item">
+                        <img src="{% static 'new_design/img/png/contact/sales_icon.png' %}">
+                        <div class="links">
+                           <h3 class="links__title">{{text.sales_department_contact|safe}}</h3>
+                           <a href="tel:+380673125315">+998 71 256 78 40</a>
+                           <a href="mailto:sales@smartone.com.ua">info@smartone.uz</a>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6 mb-4 mb-md-0">
+                     <div class="item">
+                        <img src="{% static 'new_design/img/png/contact/support_icon.png' %}">
+                        <div class="links">
+                           <h3 class="links__title">{{text.support_contact|safe}}</h3>
+                           <a href="tel:+380673125315">+998 71 205 84 00</a>
+                           <a href="mailto:sales@smartone.com.ua">info@smartone.uz</a>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6 mb-4 mb-md-0">
+                     <div class="item">
+                        <img src="{% static 'new_design/img/png/contact/service_c_icon.png' %}">
+                        <div class="links">
+                           <h3 class="links__title">Sales Department</h3>
+                           <p>Warranty and service maintenance</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6 mb-4 mb-md-0">
+                     <div class="item">
+                        <img src="{% static 'new_design/img/png/contact/partners_icon.png' %}">
+                        <div class="links">
+                           <h3 class="links__title">Support</h3>
+                           <a href="mailto:partners@smartone.com.ua">partners@smartone.com.ua</a>
+                           <p>Work with us</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div> -->
+            <div class="feedback-form">
+               <h2 class="title">{{text.contact|safe}}</h2>
+               <form action="/contact/" method="post">
+                  {% csrf_token %}
+                  <div class="form-group">
+                     <label for="inputState">{{text.city|safe}}</label>
+                     <select id="inputState" class="form-control" name='city'>
+                        <option selected>Choose...</option>
+                        <option>Fergana</option>
+                        <option>Toshkent</option>
+                     </select>
+                  </div>
+                  <div class="form-row">
+                     <div class="form-group col-md-4">
+                        <input type="text" class="form-control" id="inputName" placeholder="Name" name="username">
+                     </div>
+                     <div class="form-group col-md-4">
+                        <input type="tel" class="form-control" id="Telephone" placeholder="Phone number" name="phone">
+                     </div>
+                     <div class="form-group col-md-4">
+                        <input type="email" class="form-control" id="Email" placeholder="Email" name="email">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <textarea class="form-control" id="txta" rows="3" placeholder="Enter Text" name="text"></textarea>
+                  </div>
+                  <div class="form-group check">
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck" name="form_check" required>
+                        <label class="form-check-label" for="gridCheck">
+                           {{text.answers_terms|safe}}
+                        </label>
+                     </div>
+                  </div>
+                  <button type="submit" class="contact-btn"><span>{{text.send|safe}}</span></button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+{% endblock %}
+

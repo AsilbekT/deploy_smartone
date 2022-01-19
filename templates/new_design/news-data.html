@@ -1,0 +1,52 @@
+{% extends "new_design/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %} home {% endblock %}
+{% block content %}
+
+   <div class="content">
+      <div class="banner">
+         <div class="container">
+            <nav aria-label="breadcrumb">
+               <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="{% url 'all_news' %}">All news</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">This News</li>
+               </ol>
+            </nav>
+            <h2 class="page-title">This News</h2>
+         </div>
+      </div>
+      <div class="news-data">
+         <div class="container">
+            <div class="news-data__head">
+               <div class="row">
+                  <div class="col-md-6 mb-3 mb-md-0">
+                     <a href="#" class="news-data__head--date">
+                        <i class="fas fa-calendar"></i>{{ news_detail.news_date }}
+                     </a>
+                     <h4 class="title">{{ news_detail.news_title }}</h4>
+                  </div>
+                  <div class="col-md-6">
+                     <img src="{{ news_detail.news_url }}">
+                  </div>
+               </div>
+            </div>
+            <div class="news-data__main">
+               <p class="news-data__main--desc">{{ news_detail.news_subtitle }}</p>
+                {{ news_detail.news_text|safe }}
+               <div class="share">
+                  <h3 class="share__title">Share the news</h3>
+                  <div class="share__items">
+                     <a class="fb" href="#"><i class="fab fa-facebook"></i></a>
+                     <a class="tw" href="#"><i class="fab fa-twitter"></i></a>
+                     <a class="ln" href="#"><i class="fab fa-linkedin"></i></a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+{% endblock %}
+

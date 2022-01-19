@@ -1,0 +1,29 @@
+.guides {
+   padding: 50px 0;
+   &__item {
+      padding: 25px;
+      background: $light;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      height: 100%;
+      img {
+         width: 100px;
+         height: 100px;
+         margin-bottom: 10px;
+      }
+      &--title {
+         @include fs-18-fw-500;
+         margin-bottom: 20px;
+      }
+      p {
+         @include fs-14-fw-400;
+         margin-bottom: 20px;
+      }
+      .contact-btn {
+         justify-self: flex-end;
+      }
+   }
+}

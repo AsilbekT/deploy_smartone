@@ -1,0 +1,110 @@
+@mixin media($width) {
+   @media only screen and (max-width: $width) {
+      @content;
+   }
+}
+@for $var from 1 through 12 {
+   .myCol-#{$var} {
+      width: 100% / 12 * $var;
+   }
+}
+.myRow {
+   &::after {
+      content: "";
+      display: block;
+      clear: both;
+   }
+}
+[class*="myCol"] {
+   float: left;
+}
+@mixin fa {
+   font-family: "Font Awesome 5 Free";
+   font-weight: 600;
+}
+@mixin fs-14-fw-400 {
+   font-size: 14px;
+   line-height: 1.4;
+   font-weight: 400;
+   @include media(1400px) {
+      font-size: 12px;
+      line-height: 1.2;
+      font-weight: 400;
+   }
+}
+@mixin fs-16-fw-500 {
+   font-size: 16px;
+   line-height: 1.2;
+   font-weight: 500;
+   @include media(1400px) {
+      font-size: 14px;
+      line-height: 1.2;
+      font-weight: 500;
+   }
+}
+@mixin fs-18-fw-500 {
+   font-size: 18px;
+   line-height: 1.2;
+   font-weight: 500;
+   @include media(1400px) {
+      font-size: 16px;
+      line-height: 1.2;
+      font-weight: 500;
+   }
+}
+@mixin fs-20-fw-500 {
+   font-size: 20px;
+   line-height: 1.2;
+   font-weight: 500;
+   @include media(1400px) {
+      font-size: 20px;
+      line-height: 1.2;
+      font-weight: 500;
+   }
+   @include media(992px) {
+      font-size: 18px;
+   }
+   @include media(779px) {
+      font-size: 16px;
+   }
+}
+@mixin fs-24-fw-500 {
+   font-size: 24px;
+   line-height: 1.2;
+   font-weight: 500;
+   @include media(1400px) {
+      font-size: 20px;
+      line-height: 1.2;
+      font-weight: 500;
+   }
+}
+@mixin fs-36-fw-500 {
+   font-size: 36px;
+   line-height: 1.2;
+   font-weight: 500;
+   @include media(1400px) {
+      font-size: 30px;
+      line-height: 1.2;
+      font-weight: 500;
+   }
+}
+@mixin fs-28-fw-500 {
+   font-size: 28px;
+   line-height: 1.2;
+   font-weight: 500;
+   @include media(1400px) {
+      font-size: 26px;
+      line-height: 1.2;
+      font-weight: 500;
+   }
+}
+@mixin fs-36-fw-700 {
+   font-size: 36px;
+   line-height: 1.2;
+   font-weight: 700;
+   @include media(1400px) {
+      font-size: 30px;
+      line-height: 1.2;
+      font-weight: 500;
+   }
+}

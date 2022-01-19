@@ -1,0 +1,70 @@
+{% extends "new_design/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %} home {% endblock %}
+{% block content %}
+
+    <div class="content">
+        <div class="banner">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'products' %}">Products</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">All News</li>
+                    </ol>
+                </nav>
+                <h2 class="page-title">All News</h2>
+            </div>
+        </div>
+        <div class="all-news">
+            <div class="container">
+                <div class="search-block">
+                    <form action="#">
+                        <input class="form-control" type="search">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="news-items">
+                    <div class="row">
+                        {% for news in all_news %}
+                            <div class="col-lg-4 col-md-6 mb-3">
+                                <div class="item">
+                                    <div class="item__details">
+                                        <img src="{{ news.news_url }}">
+                                        <div class="item__details--text">
+                                            <h3 class="title">{{ news.news_title }}</h3>
+                                            <p class="desc">{{ news.news_subtitle }}</p>
+                                            <a href="{% url 'news_detail' id=news.id %}" class="more">Read More</a>
+                                        </div>
+                                    </div>
+                                    <div class="date">
+                                        <p>{{ news.news_date }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+                <nav class="pagi" aria-label="pagination">
+                    <ul class="pagination">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
+
+
+

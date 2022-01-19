@@ -1,0 +1,380 @@
+{% extends "new_design/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %} home {% endblock %}
+{% block content %}
+
+
+    <div class="content">
+        <div class="banner">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'products' %}">Products</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            SMARTONE ERP
+                        </li>
+                    </ol>
+                </nav>
+                <h2 class="page-title">SMARTONE ERP</h2>
+            </div>
+        </div>
+        <div class="top-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="text">
+                            {{ text.erp_main|safe }}
+                            <a
+                                    href="{% url 'contact' %}"
+                                    class="contact-btn"
+                                    data-toggle="modal"
+                                    data-target="#contactModalCenter"
+                            >
+                                <span>{{ text.connect|safe }}</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="top-section__img">
+                            <img src="{% static 'new_design/img/png/top-section.png' %}" alt="pic"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="about__img">
+                            <img src="{% static 'new_design/img/png/erp_questions.png' %}" alt="pic"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="about__detail">
+                            {{ text.erp_issue_answers|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="advantages">
+            <div class="container">
+                {{ text.erp_advantages|safe }}
+            </div>
+        </div>
+        <div class="product-info app">
+            <div class="container">
+                {{ text.erp_revenue_module|safe }}
+                <div class="row mb-4">
+                    <div class="col-lg-6">
+                        <div class="info">
+                            {{ text.erp_revenue_module_text|safe }}
+                            <a href="https://play.google.com/store/apps/details?id=org.qtproject.Smarty"
+                               data-mce-href="https://play.google.com/store/apps/details?id=org.qtproject.Smarty"
+                               data-mce-selected="inline-boundary"><img
+                                    src="{% static 'new_design/img/png/play_market.png' %}" alt=""
+                                    data-mce-src="{% static 'new_design/img/png/play_market.png' %}"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="img-slider owl-carousel">
+                            <div class="item">
+                                <img src="{{ productService.product_url }}"/>
+                            </div>
+                            <div class="item">
+                                <img src="{{ productService.product_url2 }}"/>
+                            </div>
+                            <div class="item">
+                                <img src="{{ productService.product_url3 }}"/>
+                            </div>
+                            <div class="item">
+                                <img src="{{ productService.product_url4 }}"/>
+                            </div>
+                            <div class="item">
+                                <img src="{{ productService.product_url5 }}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Details -->
+        <div class="details">
+            <div class="container">
+                <h2 class="section-title">{{ text.for_whom_carusel_title_home|safe }}</h2>
+                <div id="tabs" class="tabs">
+                    <ul class="tab-links">
+                        <li><a href="#tabs-1">{{ text.for_whom_carusel_retail_title_home|safe }}</a></li>
+                        <li><a href="#tabs-2">{{ text.for_whom_carusel_table2_title_home|safe }}</a></li>
+                        <li><a href="#tabs-3">{{ text.for_whom_carusel_table3_title_home|safe }}</a></li>
+                        <li><a href="#tabs-4">{{ text.for_whom_carusel_table4_title_home|safe }}</a></li>
+                        <li><a href="#tabs-5">{{ text.for_whom_carusel_table5_title_home|safe }}</a></li>
+                    </ul>
+                    <div class="tab-content" id="tabs-1">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="about__img">
+                                    <img src="{% static 'new_design/img/jpg/dt01.jpg' %}" alt="pic">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about__detail">
+                                    {#                                <h2 class="head-title">{{ text.for_whom_carusel_retail_title_home|safe }}​</h2>#}
+                                    <p class="head-subtitle">{{ text.for_whom_carusel_retail_description_home |safe }}</p>
+                                    <h3 class="about__detail--title">{{ text.for_whom_carusel_retail_subtitle_home |safe }}</h3>
+                                    <ul>
+                                        {{ text.for_whom_carusel_retail_main_home |safe }}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="tabs-2">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="about__img">
+                                    <img src="{% static 'new_design/img/jpg/dt02.jpg' %}" alt="pic">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about__detail">
+                                    {#                                <h2 class="head-title">{{ text.for_whom_carusel_retail_title_home|safe }}​</h2>#}
+                                    <p class="head-subtitle">{{ text.for_whom_carusel_table2_description_home |safe }}</p>
+                                    <h3 class="about__detail--title">{{ text.for_whom_carusel_table2_subtitle_home |safe }}</h3>
+                                    <ul>
+                                        {{ text.for_whom_carusel_table2_main_home |safe }}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="tabs-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="about__img">
+                                    <img src="{% static 'new_design/img/jpg/dt03.jpg' %}" alt="pic">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about__detail">
+                                    {#                                <h2 class="head-title">{{ text.for_whom_carusel_retail_title_home|safe }}​</h2>#}
+                                    <p class="head-subtitle">{{ text.for_whom_carusel_table3_description_home |safe }}</p>
+                                    <h3 class="about__detail--title">{{ text.for_whom_carusel_table3_subtitle_home |safe }}</h3>
+                                    <ul>
+                                        {{ text.for_whom_carusel_table3_main_home |safe }}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="tabs-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="about__img">
+                                    <img src="{% static 'new_design/img/jpg/ecommerce.jpeg' %}" alt="pic">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about__detail">
+                                    {#                                <h2 class="head-title">{{ text.for_whom_carusel_retail_title_home|safe }}​</h2>#}
+                                    <p class="head-subtitle">{{ text.for_whom_carusel_table4_description_home |safe }}</p>
+                                    <h3 class="about__detail--title">{{ text.for_whom_carusel_table4_subtitle_home |safe }}</h3>
+                                    <ul>
+                                        {{ text.for_whom_carusel_table4_main_home |safe }}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="tabs-5">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="about__img">
+                                    <img src="{% static 'new_design/img/jpg/dt02.jpg' %}" alt="pic">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about__detail">
+                                    {#                                <h2 class="head-title">{{ text.for_whom_carusel_retail_title_home|safe }}​</h2>#}
+                                    <p class="head-subtitle">{{ text.for_whom_carusel_table5_description_home |safe }}</p>
+                                    <h3 class="about__detail--title">{{ text.for_whom_carusel_table5_subtitle_home |safe }}</h3>
+                                    <ul>
+                                        {{ text.for_whom_carusel_table5_main_home |safe }}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Details End -->
+        {{text.erp_plans|safe}}
+    <!-- <div class="orders">
+            <div class="container">
+                <h2 class="section-title">Find out the cost of the configuration</h2>
+                <div class="row order">
+                    <div class="col-md-6 form p-4 mb-3 mb-md-0">
+                        <h4 class="title">Order Configuration</h4>
+                        <form action="#">
+                            <p>Mobile cash register with acquiring</p>
+                            <select class="form-control">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                            </select>
+                            <p>Mobile cash register with acquiring</p>
+                            <select class="form-control">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                            </select>
+                            <p>Mobile cash register with acquiring</p>
+                            <select class="form-control">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                            </select>
+                            <p>Mobile cash register with acquiring</p>
+                            <select class="form-control">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cost">
+                            <h4 class="title">Total cost</h4>
+                            <table>
+                                <tr>
+                                    <td>Mobile Cash Register With Acquiring</td>
+                                    <td>₴ 9,840.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Mobile Cash Register With Acquiring</td>
+                                    <td>₴ 9,840.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Mobile Cash Register With Acquiring</td>
+                                    <td>₴ 9,840.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Mobile Cash Register With Acquiring</td>
+                                    <td>₴ 9,840.00</td>
+                                </tr>
+                                <tr class="total monthly">
+                                    <td>Monthly Payment</td>
+                                    <td>₴ 600.00</td>
+                                </tr>
+                                <tr class="total one-time">
+                                    <td>Monthly Payment</td>
+                                    <td>₴ 600.00</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Guides -->
+        <div class="guides">
+            <div class="container">
+                {{text.erp_guides_title|safe}}
+                <div class="row">
+                    <div class="col-lg-4 mb-3 mb-lg-0">
+                        <div class="guides__item">
+                            <img src="{% static 'new_design/img/png/g01.png' %}" alt="pic"/>
+                            <div class="wrap">
+                                {{text.erp_guides_text1|safe}}
+                            </div>
+                            <a
+                                    href="#"
+                                    class="contact-btn"
+                                    data-toggle="modal"
+                                    data-target="#contactModalCenter"
+                            ><span>{{text.to_order|safe}}</span></a
+                            >
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-3 mb-lg-0">
+                        <div class="guides__item">
+                            <img src="{% static 'new_design/img/png/g02.png' %}" alt="pic"/>
+                            <div class="wrap">
+                                {{text.erp_guides_text2|safe}}
+                            </div>
+                            <a
+                                    href="#"
+                                    class="contact-btn"
+                                    data-toggle="modal"
+                                    data-target="#contactModalCenter"
+                            ><span>{{text.to_order|safe}}</span></a
+                            >
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-3 mb-lg-0">
+                        <div class="guides__item">
+                            <img src="{% static 'new_design/img/png/g03.png' %}" alt="pic"/>
+                            <div class="wrap">
+                                {{text.erp_guides_text3|safe}}
+                            </div>
+                            <a
+                                    href="#"
+                                    class="contact-btn"
+                                    data-toggle="modal"
+                                    data-target="#contactModalCenter"
+                            ><span>{{text.to_order|safe}}</span></a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Guides End -->
+    </div>
+
+
+    <!-- <div class="questions">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="desc">All about SmartOne Smart Terminals</p>
+            <div class="wrap">
+                <div class="accordion_block">
+                    <div class="accordion_title">
+                        How much does the online sales register charge?
+                    </div>
+                    <div class="accordion_content">
+                        <p class="desc">
+                            The device holds a charge for a total of 7 hours.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion_block">
+                    <div class="accordion_title">
+                        Where can I buy the SmartOne Budget online sales register?
+                    </div>
+                    <div class="accordion_content">
+                        <p class="desc">
+                            First, you can purchase a smart terminal on our website if you
+                            click the “Buy now” button. Secondly, you can make a pre-order
+                            by clicking on the “Pre-Order” button. Third, you can purchase a
+                            smart terminal from our partners by choosing the most optimal,
+                            in your opinion, partner in the appropriate section of our
+                            website.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+{% endblock %}

@@ -1,0 +1,35 @@
+#: SmartOne/settings.py:146
+msgid "Russian"
+msgstr ""
+
+#: SmartOne/settings.py:147
+msgid "Uzbek"
+msgstr ""
+
+#: SmartOne/settings.py:148
+msgid "English"
+msgstr ""
+
+#: products/models.py:8 templates/products.html:4 templates/store/store.html:6
+msgid "Product name"
+msgstr ""
+
+#: products/models.py:9
+msgid "Product price"
+msgstr ""
+
+#: store/models.py:10
+msgid "Name"
+msgstr ""
+
+#: store/models.py:11
+msgid "Email"
+msgstr ""
+
+#: store/models.py:12
+msgid "Language"
+msgstr ""
+
+#: templates/admin/base_site.html:3
+msgid "SmartOne admin"
+msgstr ""

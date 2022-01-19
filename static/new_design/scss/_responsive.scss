@@ -1,0 +1,393 @@
+@include media(992px) {
+   .navigation {
+      padding: 12px 0;
+      &.sticky {
+         width: 100%;
+      }
+      .logo {
+         width: 200px;
+      }
+      .container {
+         position: relative;
+      }
+      .wrap {
+         flex-direction: column;
+         align-items: flex-start;
+         position: absolute;
+         top: 100%;
+         background: $light;
+         width: 98%;
+         padding: 20px 30px 0;
+         opacity: 0;
+         pointer-events: none;
+         transition: $tr;
+         &.active {
+            opacity: 1;
+            pointer-events: visible;
+         }
+      }
+      .menu {
+         align-items: flex-start;
+         margin-right: 0px;
+         order: 3;
+         &__item {
+            margin-right: 20px;
+            padding: 8px 0;
+            z-index: 1;
+            .sub-menu {
+               padding: 10px 30px;
+               .links {
+                  margin-bottom: 0px;
+                  a {
+                     display: inline-block;
+                     margin-right: 10px;
+                  }
+               }
+               .row {
+                  display: none;
+               }
+            }
+         }
+      }
+      .langs {
+         margin-bottom: 20px;
+         order: 2;
+         z-index: 1;
+      }
+      .contact-btn {
+         order: 1;
+         margin: 0;
+         margin-bottom: 10px;
+         padding: 5px 10px;
+         @include fs-14-fw-400;
+      }
+      .cart {
+         position: absolute;
+         right: 30px;
+      }
+      .toggle-menu-btn {
+         display: block;
+         right: 0;
+      }
+   }
+   .slider {
+      height: 600px;
+      .container {
+         .item {
+            height: 600px;
+            .header-content {
+               padding: 0 30px 0 50px;
+            }
+            .header-img {
+               padding: 0 50px;
+               img {
+                  height: 65%;
+               }
+            }
+         }
+      }
+   }
+   .video-guide {
+      .video {
+         video {
+            height: 250px;
+         }
+      }
+   }
+   .details {
+      #tile-1 .nav-tabs .nav-item {
+         margin: 0px;
+         width: 33.33% !important;
+      }
+      #tile-1 .nav-tabs li a {
+         padding: 8px 16px;
+      }
+      #tile-1 .slider {
+         display: inline-block;
+         width: 100%;
+      }
+   }
+}
+@include media(779px) {
+   .navigation {
+      padding: 12px 0;
+      &.sticky {
+         width: 100%;
+      }
+      .logo {
+         width: 180px;
+      }
+      .wrap {
+         width: 97%;
+         padding: 15px 20px 0;
+      }
+      .menu {
+         &__item {
+            margin-right: 20px;
+            padding: 8px 0;
+            .sub-menu {
+               padding: 10px 20px 0;
+               .links {
+                  a {
+                     display: block;
+                     margin-right: 0px;
+                     margin-bottom: 10px;
+                  }
+               }
+            }
+         }
+      }
+      .langs {
+         margin-bottom: 10px;
+      }
+      .cart {
+         right: 20px;
+      }
+   }
+   .slider {
+      height: auto;
+      .container {
+         .item {
+            flex-wrap: wrap;
+            height: auto;
+            .header-content {
+               width: 100%;
+               padding: 30px 20px;
+            }
+            .header-img {
+               width: 100%;
+               padding: 30px 20px;
+               height: 300px;
+               img {
+                  width: 65%;
+               }
+            }
+         }
+      }
+   }
+   .about {
+      &__detail {
+         margin-bottom: 20px;
+      }
+   }
+   .video-guide {
+      .details {
+         margin-top: 20px;
+      }
+   }
+   .details {
+      .tab-links {
+         justify-content: flex-start;
+         flex-wrap: wrap;
+         li {
+            margin-right: 20px;
+            margin-bottom: 10px;
+         }
+      }
+      .tab-content {
+         .about__img {
+            margin-bottom: 20px;
+         }
+      }
+   }
+   .answers {
+      .row {
+         padding: 30px 20px;
+      }
+   }
+   .subscribe {
+      &__form {
+         margin-bottom: 20px;
+      }
+      .social {
+         align-items: center;
+      }
+   }
+   .footer {
+      &__main {
+         margin-bottom: 20px;
+         .app {
+            margin-bottom: 20px;
+         }
+         .payments {
+            display: block;
+            &__item {
+               display: inline-block;
+               margin: 0;
+               padding: 0;
+               margin-right: 10px;
+               margin-bottom: 10px;
+               &:first-child {
+                  padding-left: 0;
+               }
+            }
+         }
+      }
+      &__bottom {
+         p {
+            margin-bottom: 20px;
+         }
+         .links {
+            justify-content: flex-start;
+            a {
+               &:first-child {
+                  margin-left: 0;
+               }
+            }
+         }
+      }
+   }
+}
+@include media(600px) {
+   .goTop {
+      bottom: 20px;
+      right: 20px;
+      cursor: pointer;
+      visibility: hidden;
+      opacity: 0;
+      &::before {
+         border: 5px solid transparent;
+         border-bottom-color: $light;
+      }
+   }
+   .navigation {
+      padding: 20px 0;
+      .logo {
+         width: 180px;
+      }
+      .wrap {
+         width: 93%;
+         padding: 35px 20px 0;
+      }
+      .menu {
+         &__item {
+            margin-right: 20px;
+            padding: 8px 0;
+            .sub-menu {
+               padding: 10px 20px 0;
+               .links {
+                  a {
+                     display: block;
+                     margin-right: 0px;
+                     margin-bottom: 10px;
+                  }
+               }
+            }
+         }
+      }
+      .langs {
+         margin-bottom: 10px;
+      }
+      .cart {
+         right: 20px;
+      }
+      .toggle-menu-btn {
+         display: block;
+         right: 20px;
+      }
+   }
+   .slider {
+      height: auto;
+      .container {
+         .item {
+            .header-content {
+               padding: 20px 15px;
+            }
+            .header-img {
+               padding: 20px 15px;
+               height: 250px;
+            }
+         }
+      }
+   }
+   .details {
+      #tile-1 .nav-tabs {
+         display: flex;
+      }
+      #tile-1 .nav-tabs .nav-item {
+         margin: 0px;
+         display: block;
+      }
+      #tile-1 .nav-tabs li a {
+         padding: 8px 16px;
+      }
+      #tile-1 .slider {
+         display: inline-block;
+         width: 100%;
+      }
+   }
+}
+@include media(500px) {
+   .products {
+      .item {
+         margin: 10px;
+         &__img {
+            width: 100%;
+            height: 230px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+               height: 80%;
+               object-fit: contain;
+            }
+         }
+         &__details {
+            padding: 0 20px;
+            &--title {
+               @include fs-20-fw-500;
+               color: $textColor;
+               margin-bottom: 10px;
+            }
+            &--desc {
+               @include fs-14-fw-400;
+               color: $textColor;
+               margin-bottom: 20px;
+            }
+         }
+         &__btns {
+            padding: 0 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+         }
+      }
+      .container {
+         .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            & > .pr-btn {
+               overflow: hidden;
+               display: inline-block;
+               border-color: $stColor;
+               margin: 0 auto;
+               text-align: center;
+               &::before {
+                  content: "";
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: $stColor;
+                  z-index: -1;
+               }
+               span {
+                  z-index: -1;
+               }
+               &:hover {
+                  border-color: $ndColor;
+               }
+            }
+         }
+      }
+   }
+   .video-guide {
+      .video {
+         height: 220px;
+      }
+   }
+}
